@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -43,7 +44,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(project(":map-recognizer"))
     implementation(project(":executor"))
     implementation(project(":orchestrator"))
     implementation(project(":planner"))

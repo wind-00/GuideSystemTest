@@ -14,12 +14,6 @@ class SecondActivity : AppCompatActivity() {
         findViewById<android.widget.Button>(R.id.button_navigate_back).setOnClickListener {
             finish()
         }
-        
-        // 设置进入第三层级1按钮点击事件
-        findViewById<android.widget.Button>(R.id.btnToThird1).setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
-            startActivity(intent)
-        }
     }
 
 }

@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity1">
 
     <TextView
         android:id="@+id/text_view_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="第二层级1"
+        android:text="医院服务中心"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -21,22 +21,29 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="这是第二层级1页面。"
+        android:text="欢迎使用医院服务中心，您可以在这里进行预约挂号和查看挂号信息。"
         android:textSize="16sp"
         android:layout_marginBottom="24dp" />
 
     <Button
-        android:id="@+id/btnToThird1"
+        android:id="@+id/btnAppointment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="进入第三层级1"
+        android:text="预约挂号"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnViewAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看挂号"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/button_navigate_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="返回"
+        android:text="返回上一级"
         android:layout_marginBottom="16dp" />
 
 </LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".DoctorActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择医生"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请选择就诊医生："
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnDoctorA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="医生A（主任医师）"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDoctorB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="医生B（副主任医师）"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDoctorC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="医生C（主治医师）"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDoctorD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="医生D（住院医师）"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_navigate_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回上一级"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

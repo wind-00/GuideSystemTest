@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ViewAppointmentActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看挂号"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="您的挂号信息如下："
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <LinearLayout
+        android:id="@+id/appointment_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/background_light"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/text_clinic_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="挂号类型："
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/text_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="科室："
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/text_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="医生："
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="日期："
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="时间段："
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_no_appointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="暂无挂号信息"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnCancelAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消挂号"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_navigate_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回上一级"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

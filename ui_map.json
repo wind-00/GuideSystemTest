@@ -1,6 +1,616 @@
 {
   "pages": [
     {
+      "pageId": "AppointmentActivity",
+      "components": [
+        {
+          "componentId": "btnNormalClinic",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "clinic",
+            "normal"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DepartmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "普通门诊",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnExpertClinic",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "expert",
+            "clinic"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DepartmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "专家门诊",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnEmergency",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "emergency"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DepartmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "急诊",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnPhysicalExam",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "exam",
+            "physical"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DepartmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "体检预约",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnChronicDisease",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "chronic",
+            "disease"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DepartmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "慢性病复诊",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ConfirmActivity",
+      "components": [
+        {
+          "componentId": "btnSelectDate",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "select",
+            "date"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnSelectDate_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "选择日期",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnTimeMorning",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "morning",
+            "time"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnTimeMorning_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "上午",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnTimeAfternoon",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "afternoon",
+            "time"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnTimeAfternoon_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "下午",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnConfirmAppointment",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "appointment",
+            "confirm"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "ACTIVATE"
+              }
+            }
+          ],
+          "visibleText": "确认预约",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnCancelOperation",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "operation",
+            "cancel"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "取消操作",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "DepartmentActivity",
+      "components": [
+        {
+          "componentId": "btnInternalMedicine",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "medicine",
+            "internal"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "内科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnSurgery",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "surgery"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "外科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnPediatrics",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "pediatrics"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "儿科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnObstetricsAndGynecology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "obstetrics",
+            "and",
+            "gynecology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "妇产科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOphthalmology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "ophthalmology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "眼科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOtolaryngology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "otolaryngology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "耳鼻喉科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnDentistry",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "dentistry"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "口腔科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnDermatology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "dermatology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "皮肤科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnNeurology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "neurology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "神经内科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnCardiology",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "cardiology"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "DoctorActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "心血管内科",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "DoctorActivity",
+      "components": [
+        {
+          "componentId": "btnDoctorA",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "doctor",
+            "a"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ConfirmActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "医生A（主任医师）",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnDoctorB",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "doctor",
+            "b"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ConfirmActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "医生B（副主任医师）",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnDoctorC",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "doctor",
+            "c"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ConfirmActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "医生C（主治医师）",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnDoctorD",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "doctor",
+            "d"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ConfirmActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "医生D（住院医师）",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
       "pageId": "MainActivity",
       "components": [
         {
@@ -64,12 +674,12 @@
               "triggerType": "CLICK",
               "effect": {
                 "effectType": "NAVIGATION",
-                "targetPageId": "SecondActivity2",
+                "targetPageId": "SecondActivity1",
                 "navigationRole": "ENTER_FLOW"
               }
             }
           ],
-          "visibleText": "跳转到第二层级1",
+          "visibleText": "医院就医",
           "canonicalIntent": "action"
         },
         {
@@ -118,8 +728,8 @@
           "viewType": "VIEW",
           "semanticRole": "ACTION",
           "intentTags": [
-            "area",
             "long",
+            "area",
             "click"
           ],
           "triggers": [
@@ -164,8 +774,8 @@
           "viewType": "RADIO_GROUP",
           "semanticRole": "INPUT",
           "intentTags": [
-            "radio",
-            "group"
+            "group",
+            "radio"
           ],
           "triggers": [
             {
@@ -236,9 +846,9 @@
           "viewType": "SEEKBAR",
           "semanticRole": "INPUT",
           "intentTags": [
-            "horizontal",
+            "bar",
             "seek",
-            "bar"
+            "horizontal"
           ],
           "triggers": [
             {
@@ -261,9 +871,9 @@
           "viewType": "SEEKBAR",
           "semanticRole": "INPUT",
           "intentTags": [
-            "vertical",
+            "bar",
             "seek",
-            "bar"
+            "vertical"
           ],
           "triggers": [
             {
@@ -285,6 +895,72 @@
       "entryPoint": true
     },
     {
+      "pageId": "SecondActivity1",
+      "components": [
+        {
+          "componentId": "btnAppointment",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "appointment"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "AppointmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "预约挂号",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnViewAppointment",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "appointment"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ViewAppointmentActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "查看挂号",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
       "pageId": "SecondActivity2",
       "components": [
         {
@@ -292,9 +968,9 @@
           "viewType": "VIEW",
           "semanticRole": "ACTION",
           "intentTags": [
-            "card",
+            "stats",
             "task",
-            "stats"
+            "card"
           ],
           "triggers": [
             {
@@ -447,9 +1123,9 @@
           "viewType": "VIEW",
           "semanticRole": "FILTER",
           "intentTags": [
+            "all",
             "task",
-            "filter",
-            "all"
+            "filter"
           ],
           "triggers": [
             {
@@ -468,9 +1144,9 @@
           "viewType": "VIEW",
           "semanticRole": "FILTER",
           "intentTags": [
+            "work",
             "task",
-            "filter",
-            "work"
+            "filter"
           ],
           "triggers": [
             {
@@ -510,9 +1186,9 @@
           "viewType": "VIEW",
           "semanticRole": "FILTER",
           "intentTags": [
-            "urgent",
             "task",
-            "filter"
+            "filter",
+            "urgent"
           ],
           "triggers": [
             {
@@ -551,6 +1227,222 @@
     },
     {
       "pageId": "ThirdActivity",
+      "components": [
+        {
+          "componentId": "btnOption1",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption1_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项1",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption2",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption2_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项2",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption3",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption3_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项3",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption4",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option4"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption4_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项4",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnBack",
+          "viewType": "BUTTON",
+          "semanticRole": "NAVIGATE",
+          "intentTags": [
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "返回第二层级",
+          "canonicalIntent": "back"
+        },
+        {
+          "componentId": "switch1",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch1_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关1",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch2",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch2_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关2",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch3",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch3_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关3",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "slider",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "slider"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "slider_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ThirdActivity1",
       "components": [
         {
           "componentId": "btnOption1",
@@ -1193,6 +2085,52 @@
             }
           ],
           "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ViewAppointmentActivity",
+      "components": [
+        {
+          "componentId": "btnCancelAppointment",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "appointment",
+            "cancel"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "ACTIVATE"
+              }
+            }
+          ],
+          "visibleText": "取消挂号",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "buttonNavigateBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "button",
+            "navigate",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "canonicalIntent": "back"
         }
       ],
       "entryPoint": false

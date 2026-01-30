@@ -1,0 +1,962 @@
+{
+  "page_index": {
+    "AppointmentActivity": 0,
+    "ConfirmActivity": 1,
+    "DepartmentActivity": 2,
+    "DoctorActivity": 3,
+    "ExecutorTestActivity": 4,
+    "ExecutorTestFragment": 5,
+    "MainActivity": 6,
+    "SecondActivity": 7,
+    "SecondActivity1": 8,
+    "SecondActivity2": 9,
+    "ThirdActivity": 10,
+    "ThirdActivity1": 11,
+    "ThirdActivity2": 12,
+    "ThirdActivity3": 13,
+    "ViewAppointmentActivity": 14
+  },
+  "action_index": {
+    "(btnAppointment, CLICK)": 0,
+    "(btnBack, CLICK)": 1,
+    "(btnCancelAppointment, CLICK)": 2,
+    "(btnCancelOperation, CLICK)": 3,
+    "(btnCardiology, CLICK)": 4,
+    "(btnChronicDisease, CLICK)": 5,
+    "(btnConfirmAppointment, CLICK)": 6,
+    "(btnDentistry, CLICK)": 7,
+    "(btnDermatology, CLICK)": 8,
+    "(btnDoctorA, CLICK)": 9,
+    "(btnDoctorB, CLICK)": 10,
+    "(btnDoctorC, CLICK)": 11,
+    "(btnDoctorD, CLICK)": 12,
+    "(btnEmergency, CLICK)": 13,
+    "(btnExpertClinic, CLICK)": 14,
+    "(btnIcon, CLICK)": 15,
+    "(btnInternalMedicine, CLICK)": 16,
+    "(btnLongClick, LONG_CLICK)": 17,
+    "(btnNeurology, CLICK)": 18,
+    "(btnNormal, CLICK)": 19,
+    "(btnNormalClinic, CLICK)": 20,
+    "(btnObstetricsAndGynecology, CLICK)": 21,
+    "(btnOphthalmology, CLICK)": 22,
+    "(btnOption1, CLICK)": 23,
+    "(btnOption2, CLICK)": 24,
+    "(btnOption3, CLICK)": 25,
+    "(btnOption4, CLICK)": 26,
+    "(btnOtolaryngology, CLICK)": 27,
+    "(btnPediatrics, CLICK)": 28,
+    "(btnPhysicalExam, CLICK)": 29,
+    "(btnSelectDate, CLICK)": 30,
+    "(btnSurgery, CLICK)": 31,
+    "(btnTimeAfternoon, CLICK)": 32,
+    "(btnTimeMorning, CLICK)": 33,
+    "(btnToSecond1, CLICK)": 34,
+    "(btnToSecond2, CLICK)": 35,
+    "(btnViewAppointment, CLICK)": 36,
+    "(buttonNavigateBack, CLICK)": 37,
+    "(checkbox1, CHECKED_CHANGE)": 38,
+    "(checkbox2, CHECKED_CHANGE)": 39,
+    "(longClickArea, LONG_CLICK)": 40,
+    "(radioGroup, CHECKED_CHANGE)": 41,
+    "(seekBarHorizontal, PROGRESS_CHANGE)": 42,
+    "(seekBarVertical, PROGRESS_CHANGE)": 43,
+    "(slider, PROGRESS_CHANGE)": 44,
+    "(switch1, CHECKED_CHANGE)": 45,
+    "(switch2, CHECKED_CHANGE)": 46,
+    "(switch3, CHECKED_CHANGE)": 47,
+    "(switchButton, CHECKED_CHANGE)": 48,
+    "(taskBtnBack, CLICK)": 49,
+    "(taskBtnCompleted, CLICK)": 50,
+    "(taskBtnCreate, CLICK)": 51,
+    "(taskBtnDelete, CLICK)": 52,
+    "(taskBtnEdit, CLICK)": 53,
+    "(taskBtnPending, CLICK)": 54,
+    "(taskBtnSearch, CLICK)": 55,
+    "(taskCardStats, CLICK)": 56,
+    "(taskFilterAll, CLICK)": 57,
+    "(taskFilterPersonal, CLICK)": 58,
+    "(taskFilterUrgent, CLICK)": 59,
+    "(taskFilterWork, CLICK)": 60
+  },
+  "transition": {
+    "0": {
+      "20": [
+        2
+      ],
+      "14": [
+        2
+      ],
+      "13": [
+        2
+      ],
+      "29": [
+        2
+      ],
+      "5": [
+        2
+      ],
+      "37": []
+    },
+    "1": {
+      "30": [
+        1
+      ],
+      "33": [
+        1
+      ],
+      "32": [
+        1
+      ],
+      "6": [
+        1
+      ],
+      "3": [],
+      "37": []
+    },
+    "2": {
+      "16": [
+        3
+      ],
+      "31": [
+        3
+      ],
+      "28": [
+        3
+      ],
+      "21": [
+        3
+      ],
+      "22": [
+        3
+      ],
+      "27": [
+        3
+      ],
+      "7": [
+        3
+      ],
+      "8": [
+        3
+      ],
+      "18": [
+        3
+      ],
+      "4": [
+        3
+      ],
+      "37": []
+    },
+    "3": {
+      "9": [
+        1
+      ],
+      "10": [
+        1
+      ],
+      "11": [
+        1
+      ],
+      "12": [
+        1
+      ],
+      "37": []
+    },
+    "4": {},
+    "5": {},
+    "6": {
+      "19": [
+        6
+      ],
+      "15": [
+        6
+      ],
+      "34": [
+        8
+      ],
+      "35": [
+        9
+      ],
+      "17": [
+        6
+      ],
+      "40": [
+        6
+      ],
+      "48": [
+        6
+      ],
+      "41": [
+        6
+      ],
+      "38": [
+        6
+      ],
+      "39": [
+        6
+      ],
+      "42": [
+        6
+      ],
+      "43": [
+        6
+      ]
+    },
+    "7": {},
+    "8": {
+      "0": [
+        0
+      ],
+      "36": [
+        14
+      ],
+      "37": []
+    },
+    "9": {
+      "56": [
+        10
+      ],
+      "50": [
+        10
+      ],
+      "54": [
+        10
+      ],
+      "51": [
+        13
+      ],
+      "53": [
+        13
+      ],
+      "52": [
+        9
+      ],
+      "55": [
+        9
+      ],
+      "57": [
+        9
+      ],
+      "60": [
+        9
+      ],
+      "58": [
+        9
+      ],
+      "59": [
+        9
+      ],
+      "49": []
+    },
+    "10": {
+      "23": [
+        10
+      ],
+      "24": [
+        10
+      ],
+      "25": [
+        10
+      ],
+      "26": [
+        10
+      ],
+      "1": [],
+      "45": [
+        10
+      ],
+      "46": [
+        10
+      ],
+      "47": [
+        10
+      ],
+      "44": [
+        10
+      ]
+    },
+    "11": {
+      "23": [
+        11
+      ],
+      "24": [
+        11
+      ],
+      "25": [
+        11
+      ],
+      "26": [
+        11
+      ],
+      "1": [],
+      "45": [
+        11
+      ],
+      "46": [
+        11
+      ],
+      "47": [
+        11
+      ],
+      "44": [
+        11
+      ]
+    },
+    "12": {
+      "23": [
+        12
+      ],
+      "24": [
+        12
+      ],
+      "25": [
+        12
+      ],
+      "26": [
+        12
+      ],
+      "1": [],
+      "45": [
+        12
+      ],
+      "46": [
+        12
+      ],
+      "47": [
+        12
+      ],
+      "44": [
+        12
+      ]
+    },
+    "13": {
+      "23": [
+        13
+      ],
+      "24": [
+        13
+      ],
+      "25": [
+        13
+      ],
+      "26": [
+        13
+      ],
+      "1": [],
+      "45": [
+        13
+      ],
+      "46": [
+        13
+      ],
+      "47": [
+        13
+      ],
+      "44": [
+        13
+      ]
+    },
+    "14": {
+      "2": [
+        14
+      ],
+      "37": []
+    }
+  },
+  "action_metadata": {
+    "0": {
+      "componentId": "btnAppointment",
+      "triggerType": "CLICK",
+      "visibleText": "预约挂号",
+      "viewType": "BUTTON",
+      "page": "SecondActivity1"
+    },
+    "1": {
+      "componentId": "btnBack",
+      "triggerType": "CLICK",
+      "visibleText": "返回第二层级",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "2": {
+      "componentId": "btnCancelAppointment",
+      "triggerType": "CLICK",
+      "visibleText": "取消挂号",
+      "viewType": "BUTTON",
+      "page": "ViewAppointmentActivity"
+    },
+    "3": {
+      "componentId": "btnCancelOperation",
+      "triggerType": "CLICK",
+      "visibleText": "取消操作",
+      "viewType": "BUTTON",
+      "page": "ConfirmActivity"
+    },
+    "4": {
+      "componentId": "btnCardiology",
+      "triggerType": "CLICK",
+      "visibleText": "心血管内科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "5": {
+      "componentId": "btnChronicDisease",
+      "triggerType": "CLICK",
+      "visibleText": "慢性病复诊",
+      "viewType": "BUTTON",
+      "page": "AppointmentActivity"
+    },
+    "6": {
+      "componentId": "btnConfirmAppointment",
+      "triggerType": "CLICK",
+      "visibleText": "确认预约",
+      "viewType": "BUTTON",
+      "page": "ConfirmActivity"
+    },
+    "7": {
+      "componentId": "btnDentistry",
+      "triggerType": "CLICK",
+      "visibleText": "口腔科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "8": {
+      "componentId": "btnDermatology",
+      "triggerType": "CLICK",
+      "visibleText": "皮肤科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "9": {
+      "componentId": "btnDoctorA",
+      "triggerType": "CLICK",
+      "visibleText": "医生A（主任医师）",
+      "viewType": "BUTTON",
+      "page": "DoctorActivity"
+    },
+    "10": {
+      "componentId": "btnDoctorB",
+      "triggerType": "CLICK",
+      "visibleText": "医生B（副主任医师）",
+      "viewType": "BUTTON",
+      "page": "DoctorActivity"
+    },
+    "11": {
+      "componentId": "btnDoctorC",
+      "triggerType": "CLICK",
+      "visibleText": "医生C（主治医师）",
+      "viewType": "BUTTON",
+      "page": "DoctorActivity"
+    },
+    "12": {
+      "componentId": "btnDoctorD",
+      "triggerType": "CLICK",
+      "visibleText": "医生D（住院医师）",
+      "viewType": "BUTTON",
+      "page": "DoctorActivity"
+    },
+    "13": {
+      "componentId": "btnEmergency",
+      "triggerType": "CLICK",
+      "visibleText": "急诊",
+      "viewType": "BUTTON",
+      "page": "AppointmentActivity"
+    },
+    "14": {
+      "componentId": "btnExpertClinic",
+      "triggerType": "CLICK",
+      "visibleText": "专家门诊",
+      "viewType": "BUTTON",
+      "page": "AppointmentActivity"
+    },
+    "15": {
+      "componentId": "btnIcon",
+      "triggerType": "CLICK",
+      "visibleText": "图标按钮",
+      "viewType": "ICON_BUTTON",
+      "page": "MainActivity"
+    },
+    "16": {
+      "componentId": "btnInternalMedicine",
+      "triggerType": "CLICK",
+      "visibleText": "内科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "17": {
+      "componentId": "btnLongClick",
+      "triggerType": "LONG_CLICK",
+      "visibleText": "长按按钮",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "18": {
+      "componentId": "btnNeurology",
+      "triggerType": "CLICK",
+      "visibleText": "神经内科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "19": {
+      "componentId": "btnNormal",
+      "triggerType": "CLICK",
+      "visibleText": "普通按钮",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "20": {
+      "componentId": "btnNormalClinic",
+      "triggerType": "CLICK",
+      "visibleText": "普通门诊",
+      "viewType": "BUTTON",
+      "page": "AppointmentActivity"
+    },
+    "21": {
+      "componentId": "btnObstetricsAndGynecology",
+      "triggerType": "CLICK",
+      "visibleText": "妇产科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "22": {
+      "componentId": "btnOphthalmology",
+      "triggerType": "CLICK",
+      "visibleText": "眼科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "23": {
+      "componentId": "btnOption1",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项1",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "24": {
+      "componentId": "btnOption2",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项2",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "25": {
+      "componentId": "btnOption3",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项3",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "26": {
+      "componentId": "btnOption4",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项4",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "27": {
+      "componentId": "btnOtolaryngology",
+      "triggerType": "CLICK",
+      "visibleText": "耳鼻喉科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "28": {
+      "componentId": "btnPediatrics",
+      "triggerType": "CLICK",
+      "visibleText": "儿科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "29": {
+      "componentId": "btnPhysicalExam",
+      "triggerType": "CLICK",
+      "visibleText": "体检预约",
+      "viewType": "BUTTON",
+      "page": "AppointmentActivity"
+    },
+    "30": {
+      "componentId": "btnSelectDate",
+      "triggerType": "CLICK",
+      "visibleText": "选择日期",
+      "viewType": "BUTTON",
+      "page": "ConfirmActivity"
+    },
+    "31": {
+      "componentId": "btnSurgery",
+      "triggerType": "CLICK",
+      "visibleText": "外科",
+      "viewType": "BUTTON",
+      "page": "DepartmentActivity"
+    },
+    "32": {
+      "componentId": "btnTimeAfternoon",
+      "triggerType": "CLICK",
+      "visibleText": "下午",
+      "viewType": "BUTTON",
+      "page": "ConfirmActivity"
+    },
+    "33": {
+      "componentId": "btnTimeMorning",
+      "triggerType": "CLICK",
+      "visibleText": "上午",
+      "viewType": "BUTTON",
+      "page": "ConfirmActivity"
+    },
+    "34": {
+      "componentId": "btnToSecond1",
+      "triggerType": "CLICK",
+      "visibleText": "医院就医",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "35": {
+      "componentId": "btnToSecond2",
+      "triggerType": "CLICK",
+      "visibleText": "跳转到第二层级2",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "36": {
+      "componentId": "btnViewAppointment",
+      "triggerType": "CLICK",
+      "visibleText": "查看挂号",
+      "viewType": "BUTTON",
+      "page": "SecondActivity1"
+    },
+    "37": {
+      "componentId": "buttonNavigateBack",
+      "triggerType": "CLICK",
+      "visibleText": "",
+      "viewType": "VIEW",
+      "page": "ViewAppointmentActivity"
+    },
+    "38": {
+      "componentId": "checkbox1",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "复选1",
+      "viewType": "CHECKBOX",
+      "page": "MainActivity"
+    },
+    "39": {
+      "componentId": "checkbox2",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "复选2",
+      "viewType": "CHECKBOX",
+      "page": "MainActivity"
+    },
+    "40": {
+      "componentId": "longClickArea",
+      "triggerType": "LONG_CLICK",
+      "visibleText": "长按区域",
+      "viewType": "VIEW",
+      "page": "MainActivity"
+    },
+    "41": {
+      "componentId": "radioGroup",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "",
+      "viewType": "RADIO_GROUP",
+      "page": "MainActivity"
+    },
+    "42": {
+      "componentId": "seekBarHorizontal",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "MainActivity"
+    },
+    "43": {
+      "componentId": "seekBarVertical",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "MainActivity"
+    },
+    "44": {
+      "componentId": "slider",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "ThirdActivity3"
+    },
+    "45": {
+      "componentId": "switch1",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关1",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "46": {
+      "componentId": "switch2",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关2",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "47": {
+      "componentId": "switch3",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关3",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "48": {
+      "componentId": "switchButton",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "开关按钮",
+      "viewType": "SWITCH",
+      "page": "MainActivity"
+    },
+    "49": {
+      "componentId": "taskBtnBack",
+      "triggerType": "CLICK",
+      "visibleText": "返回第一层级",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "50": {
+      "componentId": "taskBtnCompleted",
+      "triggerType": "CLICK",
+      "visibleText": "查看已完成任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "51": {
+      "componentId": "taskBtnCreate",
+      "triggerType": "CLICK",
+      "visibleText": "创建新任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "52": {
+      "componentId": "taskBtnDelete",
+      "triggerType": "CLICK",
+      "visibleText": "删除任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "53": {
+      "componentId": "taskBtnEdit",
+      "triggerType": "CLICK",
+      "visibleText": "编辑任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "54": {
+      "componentId": "taskBtnPending",
+      "triggerType": "CLICK",
+      "visibleText": "查看待办任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "55": {
+      "componentId": "taskBtnSearch",
+      "triggerType": "CLICK",
+      "visibleText": "搜索任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "56": {
+      "componentId": "taskCardStats",
+      "triggerType": "CLICK",
+      "visibleText": "",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "57": {
+      "componentId": "taskFilterAll",
+      "triggerType": "CLICK",
+      "visibleText": "全部",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "58": {
+      "componentId": "taskFilterPersonal",
+      "triggerType": "CLICK",
+      "visibleText": "个人",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "59": {
+      "componentId": "taskFilterUrgent",
+      "triggerType": "CLICK",
+      "visibleText": "紧急",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "60": {
+      "componentId": "taskFilterWork",
+      "triggerType": "CLICK",
+      "visibleText": "工作",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    }
+  },
+  "visible_text_index": {
+    "预约挂号": [
+      0
+    ],
+    "返回第二层级": [
+      1
+    ],
+    "取消挂号": [
+      2
+    ],
+    "取消操作": [
+      3
+    ],
+    "心血管内科": [
+      4
+    ],
+    "慢性病复诊": [
+      5
+    ],
+    "确认预约": [
+      6
+    ],
+    "口腔科": [
+      7
+    ],
+    "皮肤科": [
+      8
+    ],
+    "医生A（主任医师）": [
+      9
+    ],
+    "医生B（副主任医师）": [
+      10
+    ],
+    "医生C（主治医师）": [
+      11
+    ],
+    "医生D（住院医师）": [
+      12
+    ],
+    "急诊": [
+      13
+    ],
+    "专家门诊": [
+      14
+    ],
+    "图标按钮": [
+      15
+    ],
+    "内科": [
+      16
+    ],
+    "长按按钮": [
+      17
+    ],
+    "神经内科": [
+      18
+    ],
+    "普通按钮": [
+      19
+    ],
+    "普通门诊": [
+      20
+    ],
+    "妇产科": [
+      21
+    ],
+    "眼科": [
+      22
+    ],
+    "第三层级3选项1": [
+      23
+    ],
+    "第三层级3选项2": [
+      24
+    ],
+    "第三层级3选项3": [
+      25
+    ],
+    "第三层级3选项4": [
+      26
+    ],
+    "耳鼻喉科": [
+      27
+    ],
+    "儿科": [
+      28
+    ],
+    "体检预约": [
+      29
+    ],
+    "选择日期": [
+      30
+    ],
+    "外科": [
+      31
+    ],
+    "下午": [
+      32
+    ],
+    "上午": [
+      33
+    ],
+    "医院就医": [
+      34
+    ],
+    "跳转到第二层级2": [
+      35
+    ],
+    "查看挂号": [
+      36
+    ],
+    "复选1": [
+      38
+    ],
+    "复选2": [
+      39
+    ],
+    "长按区域": [
+      40
+    ],
+    "第三层级3开关1": [
+      45
+    ],
+    "第三层级3开关2": [
+      46
+    ],
+    "第三层级3开关3": [
+      47
+    ],
+    "开关按钮": [
+      48
+    ],
+    "返回第一层级": [
+      49
+    ],
+    "查看已完成任务": [
+      50
+    ],
+    "创建新任务": [
+      51
+    ],
+    "删除任务": [
+      52
+    ],
+    "编辑任务": [
+      53
+    ],
+    "查看待办任务": [
+      54
+    ],
+    "搜索任务": [
+      55
+    ],
+    "全部": [
+      57
+    ],
+    "个人": [
+      58
+    ],
+    "紧急": [
+      59
+    ],
+    "工作": [
+      60
+    ]
+  }
+}

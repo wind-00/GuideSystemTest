@@ -190,36 +190,76 @@ class ViewAtomicActionExecutor(private val stateProvider: PageStateProvider) : A
             return taggedView
         }
         
-        // 再尝试通过id查找
-        try {
-            val resourceId = activity.resources.getIdentifier(componentId, "id", activity.packageName)
-            if (resourceId != 0) {
-                Log.d(TAG, "找到资源ID: $resourceId for $componentId")
-                val view = rootView.findViewById<View>(resourceId)
-                if (view != null) {
-                    Log.d(TAG, "通过id找到组件: $componentId")
-                    return view
-                } else {
-                    Log.w(TAG, "资源ID存在但找不到View: $componentId")
-                }
-            } else {
-                Log.w(TAG, "无法找到资源ID: $componentId")
+        // 尝试不同的ID格式查找组件
+        val possibleIds = mutableListOf(componentId)
+        
+        // 添加驼峰命名法转下划线命名法的ID
+        if (!componentId.contains("_")) {
+            val underscoreId = camelCaseToUnderscore(componentId)
+            if (underscoreId != componentId) {
+                possibleIds.add(underscoreId)
             }
-        } catch (e: Exception) {
-            Log.e(TAG, "查找组件失败: ${e.message}")
-            e.printStackTrace()
+        }
+        
+        // 添加下划线命名法转驼峰命名法的ID
+        if (componentId.contains("_")) {
+            val camelCaseId = underscoreToCamelCase(componentId)
+            if (camelCaseId != componentId) {
+                possibleIds.add(camelCaseId)
+            }
+        }
+        
+        // 尝试通过id查找
+        for (id in possibleIds) {
+            try {
+                val resourceId = activity.resources.getIdentifier(id, "id", activity.packageName)
+                if (resourceId != 0) {
+                    Log.d(TAG, "找到资源ID: $resourceId for $id")
+                    val view = rootView.findViewById<View>(resourceId)
+                    if (view != null) {
+                        Log.d(TAG, "通过id找到组件: $id (原始ID: $componentId)")
+                        return view
+                    } else {
+                        Log.w(TAG, "资源ID存在但找不到View: $id (原始ID: $componentId)")
+                    }
+                } else {
+                    Log.w(TAG, "无法找到资源ID: $id (原始ID: $componentId)")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "查找组件失败: ${e.message}")
+                e.printStackTrace()
+            }
         }
         
         // 尝试递归查找
-        val recursiveView = findViewRecursive(rootView, componentId)
-        if (recursiveView != null) {
-            Log.d(TAG, "通过递归查找找到组件: $componentId")
-            return recursiveView
+        for (id in possibleIds) {
+            val recursiveView = findViewRecursive(rootView, id)
+            if (recursiveView != null) {
+                Log.d(TAG, "通过递归查找找到组件: $id (原始ID: $componentId)")
+                return recursiveView
+            }
         }
         
         return null
     }
     
+    /**
+     * 将驼峰命名法转换为下划线命名法
+     */
+    private fun camelCaseToUnderscore(camelCase: String): String {
+        return camelCase.replace(Regex("([a-z])([A-Z])"), "$1_$2").lowercase()
+    }
+    
+    /**
+     * 将下划线命名法转换为驼峰命名法
+     */
+    private fun underscoreToCamelCase(underscore: String): String {
+        return underscore.split("_").joinToString("") { it.capitalize() }
+    }
+    
+    /**
+     * 递归查找View
+     */
     private fun findViewRecursive(view: View, componentId: String): View? {
         // 检查当前View
         if (view.id != View.NO_ID) {

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ConfirmActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认预约"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请确认您的预约信息："
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnSelectDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择日期"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
+
+        <Button
+            android:id="@+id/btnTimeMorning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="上午"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btnTimeAfternoon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="下午"
+            android:layout_marginLeft="8dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_appointment_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预约信息将显示在这里"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnConfirmAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确认预约"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnCancelOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消操作"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_navigate_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回上一级"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

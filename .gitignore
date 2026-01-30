@@ -9,7 +9,43 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+*/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+*.log
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+bin/
+out/
+obj/
+libs/
+.idea/
+.gradle/
+local.properties
+
+# 排除所有模块的build目录
+app/build/
+executor/build/
+orchestrator/build/
+planner/build/
+
+# 排除其他可能的构建产物
+build/
+.gradle/
+
+# 排除临时文件和目录
+.trae/
+_tmp/
+
+# 排除错误日志文件
+hs_err_*.log

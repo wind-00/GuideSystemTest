@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".DepartmentActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择科室"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请选择就诊科室："
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnInternalMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="内科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnSurgery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="外科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnPediatrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="儿科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnObstetricsAndGynecology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="妇产科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnOphthalmology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="眼科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnOtolaryngology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="耳鼻喉科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnDentistry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="口腔科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnDermatology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="皮肤科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnNeurology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="神经内科"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnCardiology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="心血管内科"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_navigate_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回上一级"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

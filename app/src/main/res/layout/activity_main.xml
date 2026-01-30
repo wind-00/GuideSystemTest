@@ -249,7 +249,7 @@
             android:id="@+id/btnToSecond1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="跳转到第二层级1"
+            android:text="医院就医"
             android:layout_marginBottom="8dp" />
 
         <Button

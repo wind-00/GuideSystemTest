@@ -18,16 +18,37 @@
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
+            android:name=".SecondActivity1"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivity2"
             android:exported="false" />
         <activity
             android:name=".ThirdActivity"
             android:exported="false" />
         <activity
+            android:name=".ThirdActivity1"
+            android:exported="false" />
+        <activity
             android:name=".ThirdActivity2"
             android:exported="false" />
         <activity
             android:name=".ThirdActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAppointmentActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

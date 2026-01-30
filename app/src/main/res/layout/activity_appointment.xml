@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AppointmentActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预约挂号"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请选择挂号类型："
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnNormalClinic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通门诊"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnExpertClinic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="专家门诊"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnEmergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="急诊"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnPhysicalExam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="体检预约"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnChronicDisease"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="慢性病复诊"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_navigate_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回上一级"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
