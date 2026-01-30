@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.executor.action.ViewAtomicActionExecutorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-01-28T13:58:01.601Z" hostname="LAPTOP-NRMNDVQ6" time="16.535">
+  <properties/>
+  <testcase name="execute should return success for checked change action on checkbox" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="16.306"/>
+  <testcase name="execute should return success for long click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.054"/>
+  <testcase name="execute should return fail for unsupported trigger type" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.048"/>
+  <testcase name="execute should return success for progress change action on progress bar" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.038"/>
+  <testcase name="execute should return success for touch action on edit text" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.044"/>
+  <testcase name="execute should return success for click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

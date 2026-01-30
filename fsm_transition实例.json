@@ -1,0 +1,526 @@
+{
+  "page_index": {
+    "ExecutorTestActivity": 0,
+    "ExecutorTestFragment": 1,
+    "MainActivity": 2,
+    "SecondActivity": 3,
+    "SecondActivity2": 4,
+    "ThirdActivity": 5,
+    "ThirdActivity2": 6,
+    "ThirdActivity3": 7
+  },
+  "action_index": {
+    "(btnBack, CLICK)": 0,
+    "(btnIcon, CLICK)": 1,
+    "(btnLongClick, LONG_CLICK)": 2,
+    "(btnNormal, CLICK)": 3,
+    "(btnOption1, CLICK)": 4,
+    "(btnOption2, CLICK)": 5,
+    "(btnOption3, CLICK)": 6,
+    "(btnOption4, CLICK)": 7,
+    "(btnToSecond1, CLICK)": 8,
+    "(btnToSecond2, CLICK)": 9,
+    "(checkbox1, CHECKED_CHANGE)": 10,
+    "(checkbox2, CHECKED_CHANGE)": 11,
+    "(longClickArea, LONG_CLICK)": 12,
+    "(radioGroup, CHECKED_CHANGE)": 13,
+    "(seekBarHorizontal, PROGRESS_CHANGE)": 14,
+    "(seekBarVertical, PROGRESS_CHANGE)": 15,
+    "(slider, PROGRESS_CHANGE)": 16,
+    "(switch1, CHECKED_CHANGE)": 17,
+    "(switch2, CHECKED_CHANGE)": 18,
+    "(switch3, CHECKED_CHANGE)": 19,
+    "(switchButton, CHECKED_CHANGE)": 20,
+    "(taskBtnBack, CLICK)": 21,
+    "(taskBtnCompleted, CLICK)": 22,
+    "(taskBtnCreate, CLICK)": 23,
+    "(taskBtnDelete, CLICK)": 24,
+    "(taskBtnEdit, CLICK)": 25,
+    "(taskBtnPending, CLICK)": 26,
+    "(taskBtnSearch, CLICK)": 27,
+    "(taskCardStats, CLICK)": 28,
+    "(taskFilterAll, CLICK)": 29,
+    "(taskFilterPersonal, CLICK)": 30,
+    "(taskFilterUrgent, CLICK)": 31,
+    "(taskFilterWork, CLICK)": 32
+  },
+  "transition": {
+    "0": {},
+    "1": {},
+    "2": {
+      "3": [
+        2
+      ],
+      "1": [
+        2
+      ],
+      "8": [
+        4
+      ],
+      "9": [
+        4
+      ],
+      "2": [
+        2
+      ],
+      "12": [
+        2
+      ],
+      "20": [
+        2
+      ],
+      "13": [
+        2
+      ],
+      "10": [
+        2
+      ],
+      "11": [
+        2
+      ],
+      "14": [
+        2
+      ],
+      "15": [
+        2
+      ]
+    },
+    "3": {},
+    "4": {
+      "28": [
+        5
+      ],
+      "22": [
+        5
+      ],
+      "26": [
+        5
+      ],
+      "23": [
+        7
+      ],
+      "25": [
+        7
+      ],
+      "24": [
+        4
+      ],
+      "27": [
+        4
+      ],
+      "29": [
+        4
+      ],
+      "32": [
+        4
+      ],
+      "30": [
+        4
+      ],
+      "31": [
+        4
+      ],
+      "21": []
+    },
+    "5": {
+      "4": [
+        5
+      ],
+      "5": [
+        5
+      ],
+      "6": [
+        5
+      ],
+      "7": [
+        5
+      ],
+      "0": [],
+      "17": [
+        5
+      ],
+      "18": [
+        5
+      ],
+      "19": [
+        5
+      ],
+      "16": [
+        5
+      ]
+    },
+    "6": {
+      "4": [
+        6
+      ],
+      "5": [
+        6
+      ],
+      "6": [
+        6
+      ],
+      "7": [
+        6
+      ],
+      "0": [],
+      "17": [
+        6
+      ],
+      "18": [
+        6
+      ],
+      "19": [
+        6
+      ],
+      "16": [
+        6
+      ]
+    },
+    "7": {
+      "4": [
+        7
+      ],
+      "5": [
+        7
+      ],
+      "6": [
+        7
+      ],
+      "7": [
+        7
+      ],
+      "0": [],
+      "17": [
+        7
+      ],
+      "18": [
+        7
+      ],
+      "19": [
+        7
+      ],
+      "16": [
+        7
+      ]
+    }
+  },
+  "action_metadata": {
+    "0": {
+      "componentId": "btnBack",
+      "triggerType": "CLICK",
+      "visibleText": "返回第二层级",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "1": {
+      "componentId": "btnIcon",
+      "triggerType": "CLICK",
+      "visibleText": "图标按钮",
+      "viewType": "ICON_BUTTON",
+      "page": "MainActivity"
+    },
+    "2": {
+      "componentId": "btnLongClick",
+      "triggerType": "LONG_CLICK",
+      "visibleText": "长按按钮",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "3": {
+      "componentId": "btnNormal",
+      "triggerType": "CLICK",
+      "visibleText": "普通按钮",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "4": {
+      "componentId": "btnOption1",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项1",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "5": {
+      "componentId": "btnOption2",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项2",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "6": {
+      "componentId": "btnOption3",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项3",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "7": {
+      "componentId": "btnOption4",
+      "triggerType": "CLICK",
+      "visibleText": "第三层级3选项4",
+      "viewType": "BUTTON",
+      "page": "ThirdActivity3"
+    },
+    "8": {
+      "componentId": "btnToSecond1",
+      "triggerType": "CLICK",
+      "visibleText": "跳转到第二层级1",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "9": {
+      "componentId": "btnToSecond2",
+      "triggerType": "CLICK",
+      "visibleText": "跳转到第二层级2",
+      "viewType": "BUTTON",
+      "page": "MainActivity"
+    },
+    "10": {
+      "componentId": "checkbox1",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "复选1",
+      "viewType": "CHECKBOX",
+      "page": "MainActivity"
+    },
+    "11": {
+      "componentId": "checkbox2",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "复选2",
+      "viewType": "CHECKBOX",
+      "page": "MainActivity"
+    },
+    "12": {
+      "componentId": "longClickArea",
+      "triggerType": "LONG_CLICK",
+      "visibleText": "长按区域",
+      "viewType": "VIEW",
+      "page": "MainActivity"
+    },
+    "13": {
+      "componentId": "radioGroup",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "",
+      "viewType": "RADIO_GROUP",
+      "page": "MainActivity"
+    },
+    "14": {
+      "componentId": "seekBarHorizontal",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "MainActivity"
+    },
+    "15": {
+      "componentId": "seekBarVertical",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "MainActivity"
+    },
+    "16": {
+      "componentId": "slider",
+      "triggerType": "PROGRESS_CHANGE",
+      "visibleText": "",
+      "viewType": "SEEKBAR",
+      "page": "ThirdActivity3"
+    },
+    "17": {
+      "componentId": "switch1",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关1",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "18": {
+      "componentId": "switch2",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关2",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "19": {
+      "componentId": "switch3",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "第三层级3开关3",
+      "viewType": "SWITCH",
+      "page": "ThirdActivity3"
+    },
+    "20": {
+      "componentId": "switchButton",
+      "triggerType": "CHECKED_CHANGE",
+      "visibleText": "开关按钮",
+      "viewType": "SWITCH",
+      "page": "MainActivity"
+    },
+    "21": {
+      "componentId": "taskBtnBack",
+      "triggerType": "CLICK",
+      "visibleText": "返回第一层级",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "22": {
+      "componentId": "taskBtnCompleted",
+      "triggerType": "CLICK",
+      "visibleText": "查看已完成任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "23": {
+      "componentId": "taskBtnCreate",
+      "triggerType": "CLICK",
+      "visibleText": "创建新任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "24": {
+      "componentId": "taskBtnDelete",
+      "triggerType": "CLICK",
+      "visibleText": "删除任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "25": {
+      "componentId": "taskBtnEdit",
+      "triggerType": "CLICK",
+      "visibleText": "编辑任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "26": {
+      "componentId": "taskBtnPending",
+      "triggerType": "CLICK",
+      "visibleText": "查看待办任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "27": {
+      "componentId": "taskBtnSearch",
+      "triggerType": "CLICK",
+      "visibleText": "搜索任务",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "28": {
+      "componentId": "taskCardStats",
+      "triggerType": "CLICK",
+      "visibleText": "",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "29": {
+      "componentId": "taskFilterAll",
+      "triggerType": "CLICK",
+      "visibleText": "全部",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "30": {
+      "componentId": "taskFilterPersonal",
+      "triggerType": "CLICK",
+      "visibleText": "个人",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "31": {
+      "componentId": "taskFilterUrgent",
+      "triggerType": "CLICK",
+      "visibleText": "紧急",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    },
+    "32": {
+      "componentId": "taskFilterWork",
+      "triggerType": "CLICK",
+      "visibleText": "工作",
+      "viewType": "VIEW",
+      "page": "SecondActivity2"
+    }
+  },
+  "visible_text_index": {
+    "返回第二层级": [
+      0
+    ],
+    "图标按钮": [
+      1
+    ],
+    "长按按钮": [
+      2
+    ],
+    "普通按钮": [
+      3
+    ],
+    "第三层级3选项1": [
+      4
+    ],
+    "第三层级3选项2": [
+      5
+    ],
+    "第三层级3选项3": [
+      6
+    ],
+    "第三层级3选项4": [
+      7
+    ],
+    "跳转到第二层级1": [
+      8
+    ],
+    "跳转到第二层级2": [
+      9
+    ],
+    "复选1": [
+      10
+    ],
+    "复选2": [
+      11
+    ],
+    "长按区域": [
+      12
+    ],
+    "第三层级3开关1": [
+      17
+    ],
+    "第三层级3开关2": [
+      18
+    ],
+    "第三层级3开关3": [
+      19
+    ],
+    "开关按钮": [
+      20
+    ],
+    "返回第一层级": [
+      21
+    ],
+    "查看已完成任务": [
+      22
+    ],
+    "创建新任务": [
+      23
+    ],
+    "删除任务": [
+      24
+    ],
+    "编辑任务": [
+      25
+    ],
+    "查看待办任务": [
+      26
+    ],
+    "搜索任务": [
+      27
+    ],
+    "全部": [
+      29
+    ],
+    "个人": [
+      30
+    ],
+    "紧急": [
+      31
+    ],
+    "工作": [
+      32
+    ]
+  }
+}

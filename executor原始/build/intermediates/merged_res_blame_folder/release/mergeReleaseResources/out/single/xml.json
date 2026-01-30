@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.example.executor-release-19:/xml/accessibility_service_config.xml",
+        "source": "com.example.executor-main-20:/xml/accessibility_service_config.xml"
+    }
+]

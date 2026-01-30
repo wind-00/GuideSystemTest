@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ExecutorTestActivity">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Executor Test"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/button_test_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Click"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_test_long_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Long Click"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Test EditText"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/check_box_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test CheckBox"
+        android:layout_marginBottom="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_navigate_to_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Navigate to Second Activity"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_load_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Test Fragment"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_view_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Execution Result:"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_view_result_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </ScrollView>
+
+</LinearLayout>

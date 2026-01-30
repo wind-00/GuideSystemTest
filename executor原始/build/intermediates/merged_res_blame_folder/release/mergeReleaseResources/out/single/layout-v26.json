@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.example.executor-release-19:/layout-v26/abc_screen_toolbar.xml",
+        "source": "com.example.executor-appcompat-1.6.1-5:/layout-v26/abc_screen_toolbar.xml"
+    }
+]

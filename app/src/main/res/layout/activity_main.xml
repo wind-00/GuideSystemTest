@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地图识别器测试用例"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 点击交互区域 -->
+    <TextView
+        android:id="@+id/txtClickTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击交互"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+    <LinearLayout
+        android:id="@+id/clickContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtClickTitle">
+
+        <Button
+            android:id="@+id/btnNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="普通按钮"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="图标按钮"
+            android:drawableStart="@android:drawable/ic_menu_mylocation"
+            android:layout_marginBottom="8dp" />
+
+        <Switch
+            android:id="@+id/switchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开关按钮"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="单选1" />
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="单选2" />
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="单选3" />
+            
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复选1" />
+
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="复选2" />
+                
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 滑动交互区域 -->
+    <TextView
+        android:id="@+id/txtSlideTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="滑动交互"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clickContainer" />
+
+    <LinearLayout
+        android:id="@+id/slideContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSlideTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/txtSeekBarValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="水平滑块值: 0"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp" />
+
+            <SeekBar
+                android:id="@+id/seekBarHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+                
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <SeekBar
+                android:id="@+id/seekBarVertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:rotation="270"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/txtVerticalSeekBarValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="垂直滑块值: 0"
+                android:layout_marginStart="16dp" />
+                
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 长按交互区域 -->
+    <TextView
+        android:id="@+id/txtLongClickTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="长按交互"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slideContainer" />
+
+    <LinearLayout
+        android:id="@+id/longClickContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLongClickTitle">
+
+        <Button
+            android:id="@+id/btnLongClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="长按按钮"
+            android:layout_marginBottom="8dp" />
+
+        <View
+            android:id="@+id/longClickArea"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="长按区域" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="长按上方灰色区域"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <!-- 层级导航按钮 -->
+    <LinearLayout
+        android:id="@+id/navigationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longClickContainer">
+
+        <Button
+            android:id="@+id/btnToSecond1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到第二层级1"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnToSecond2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到第二层级2" />
+
+    </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

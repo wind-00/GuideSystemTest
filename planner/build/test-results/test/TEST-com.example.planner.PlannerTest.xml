@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.planner.PlannerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-28T15:58:24.805Z" hostname="LAPTOP-NRMNDVQ6" time="0.005">
+  <properties/>
+  <testcase name="test BFS search finds path" classname="com.example.planner.PlannerTest" time="0.002"/>
+  <testcase name="test DFS search finds path" classname="com.example.planner.PlannerTest" time="0.0"/>
+  <testcase name="test invalid start page returns failure" classname="com.example.planner.PlannerTest" time="0.0"/>
+  <testcase name="test invalid target visible text returns failure" classname="com.example.planner.PlannerTest" time="0.0"/>
+  <testcase name="test no path found returns failure" classname="com.example.planner.PlannerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

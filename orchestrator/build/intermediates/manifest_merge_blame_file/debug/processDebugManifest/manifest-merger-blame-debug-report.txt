@@ -1,0 +1,21 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.orchestrator" >
+4
+5    <uses-sdk android:minSdkVersion="26" />
+6
+7    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+7-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:5:5-78
+7-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:5:22-75
+8
+9    <application>
+9-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:7:5-11:19
+10        <service
+10-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:8:9-10:40
+11            android:name="com.example.orchestrator.overlay.OverlayService"
+11-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:9:13-51
+12            android:exported="false" />
+12-->C:\Users\13210\AndroidStudioProjects\GuideSystemTest\orchestrator\src\main\AndroidManifest.xml:10:13-37
+13    </application>
+14
+15</manifest>

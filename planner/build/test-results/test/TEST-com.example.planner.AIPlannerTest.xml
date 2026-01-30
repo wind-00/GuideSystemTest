@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.planner.AIPlannerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-01-28T15:57:54.216Z" hostname="LAPTOP-NRMNDVQ6" time="30.58">
+  <properties/>
+  <testcase name="test BFS search strategy" classname="com.example.planner.AIPlannerTest" time="3.482"/>
+  <testcase name="test different start page" classname="com.example.planner.AIPlannerTest" time="3.017"/>
+  <testcase name="test intent with different wording" classname="com.example.planner.AIPlannerTest" time="3.012"/>
+  <testcase name="test from second level to third level" classname="com.example.planner.AIPlannerTest" time="3.018"/>
+  <testcase name="test basic intent - go to second level 1" classname="com.example.planner.AIPlannerTest" time="3.009"/>
+  <testcase name="test basic intent - go to second level 2" classname="com.example.planner.AIPlannerTest" time="3.008"/>
+  <testcase name="test from third level to second level" classname="com.example.planner.AIPlannerTest" time="3.008"/>
+  <testcase name="test complex intent - access third level function" classname="com.example.planner.AIPlannerTest" time="3.008"/>
+  <testcase name="test DFS search strategy" classname="com.example.planner.AIPlannerTest" time="3.008"/>
+  <testcase name="test cross level jump from main to third" classname="com.example.planner.AIPlannerTest" time="3.01"/>
+  <system-out><![CDATA[
+Test 4: BFS search strategy
+Mock AI analyzing intent: 跳转到第二层级1
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第二层级1
+Start State: MainActivity
+Search Strategy: BFS
+Intent: 跳转到第二层级1
+Result: true
+Action Path:
+  1. 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Action Path Summary: 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Reason: null
+Test 4 completed, waiting...
+
+Test 6: Different start page
+Mock AI analyzing intent: 返回第一层级
+Current start page: SecondActivity
+Mock AI returned target text: 返回第一层级
+Start State: SecondActivity
+Intent: 返回第一层级
+Result: true
+Action Path:
+  1. 0 ( - auto_back_btn - CLICK)
+  2. 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+  3. 22 (返回第一层级 - taskBtnBack - CLICK)
+Action Path Summary: 0 ( - auto_back_btn - CLICK) -> 10 (跳转到第二层级2 - btnToSecond2 - CLICK) -> 22 (返回第一层级 - taskBtnBack - CLICK)
+Reason: null
+Test 6 completed, waiting...
+
+Test 7: Intent with different wording
+Mock AI analyzing intent: 我想点击跳转到第二层级1的按钮
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第二层级1
+Start State: MainActivity
+Intent: 我想点击跳转到第二层级1的按钮
+Result: true
+Action Path:
+  1. 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Action Path Summary: 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Reason: null
+Test 7 completed, waiting...
+
+Test 8: From second level to third level
+Mock AI analyzing intent: 我想跳转到第三层级1
+Current start page: SecondActivity2
+Mock AI returned target text: 跳转到第三层级1
+Using similar visible text: 跳转到第二层级1 (matched from: 跳转到第三层级1)
+Start State: SecondActivity2
+Intent: 我想跳转到第三层级1
+Result: true
+Action Path:
+  1. 0 ( - auto_back_btn - CLICK)
+  2. 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Action Path Summary: 0 ( - auto_back_btn - CLICK) -> 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Reason: null
+Test 8 completed, waiting...
+Test 1: Basic intent - go to second level 1
+Mock AI analyzing intent: 我想跳转到第二层级1
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第二层级1
+Start State: MainActivity
+Intent: 我想跳转到第二层级1
+Result: true
+Action Path:
+  1. 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Action Path Summary: 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Reason: null
+Test 1 completed, waiting...
+
+Test 2: Basic intent - go to second level 2
+Mock AI analyzing intent: 我需要跳转到第二层级2
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第二层级2
+Start State: MainActivity
+Intent: 我需要跳转到第二层级2
+Result: true
+Action Path:
+  1. 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+Action Path Summary: 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+Reason: null
+Test 2 completed, waiting...
+
+Test 9: From third level to second level
+Mock AI analyzing intent: 我想返回第二层级
+Current start page: ThirdActivity
+Mock AI returned target text: 返回第二层级
+Start State: ThirdActivity
+Intent: 我想返回第二层级
+Result: true
+Action Path:
+  1. 0 ( - auto_back_btn - CLICK)
+  2. 24 (创建新任务 - taskBtnCreate - CLICK)
+  3. 1 (返回第二层级 - btnBack - CLICK)
+Action Path Summary: 0 ( - auto_back_btn - CLICK) -> 24 (创建新任务 - taskBtnCreate - CLICK) -> 1 (返回第二层级 - btnBack - CLICK)
+Reason: null
+Test 9 completed, waiting...
+
+Test 3: Complex intent - access third level function
+Mock AI analyzing intent: 我需要访问第三个页面的功能
+Current start page: MainActivity
+Mock AI returned target text: 返回第二层级
+Start State: MainActivity
+Intent: 我需要访问第三个页面的功能
+Result: true
+Action Path:
+  1. 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+  2. 24 (创建新任务 - taskBtnCreate - CLICK)
+  3. 1 (返回第二层级 - btnBack - CLICK)
+Action Path Summary: 10 (跳转到第二层级2 - btnToSecond2 - CLICK) -> 24 (创建新任务 - taskBtnCreate - CLICK) -> 1 (返回第二层级 - btnBack - CLICK)
+Reason: null
+Test 3 completed, waiting...
+
+Test 5: DFS search strategy
+Mock AI analyzing intent: 跳转到第二层级1
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第二层级1
+Start State: MainActivity
+Search Strategy: DFS
+Intent: 跳转到第二层级1
+Result: true
+Action Path:
+  1. 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Action Path Summary: 9 (跳转到第二层级1 - btnToSecond1 - CLICK)
+Reason: null
+Test 5 completed, waiting...
+
+Test 10: Cross level jump from main to third
+Mock AI analyzing intent: 我想直接跳转到第三层级2
+Current start page: MainActivity
+Mock AI returned target text: 跳转到第三层级2
+Using similar visible text: 跳转到第二层级2 (matched from: 跳转到第三层级2)
+Start State: MainActivity
+Intent: 我想直接跳转到第三层级2
+Result: true
+Action Path:
+  1. 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+Action Path Summary: 10 (跳转到第二层级2 - btnToSecond2 - CLICK)
+Reason: null
+Test 10 completed, waiting...
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.executor.core.ExecutionEngineTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-28T13:58:18.146Z" hostname="LAPTOP-NRMNDVQ6" time="0.413">
+  <properties/>
+  <testcase name="execute should return failed when atomic action execution fails" classname="com.example.executor.core.ExecutionEngineTest" time="0.383"/>
+  <testcase name="execute should return page not changed when page remains the same after action" classname="com.example.executor.core.ExecutionEngineTest" time="0.013"/>
+  <testcase name="execute should return timeout when ui stabilization times out" classname="com.example.executor.core.ExecutionEngineTest" time="0.005"/>
+  <testcase name="execute should return success when all steps are executed successfully" classname="com.example.executor.core.ExecutionEngineTest" time="0.008"/>
+  <testcase name="execute should return page mismatch when current page is different from start page" classname="com.example.executor.core.ExecutionEngineTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,1216 @@
+{
+  "pages": [
+    {
+      "pageId": "MainActivity",
+      "components": [
+        {
+          "componentId": "btnNormal",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "normal"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnNormal_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "普通按钮",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnIcon",
+          "viewType": "ICON_BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "icon"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnIcon_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "图标按钮",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnToSecond1",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "second1",
+            "to"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "SecondActivity2",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "跳转到第二层级1",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnToSecond2",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "second2",
+            "to"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "SecondActivity2",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "跳转到第二层级2",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnLongClick",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "long",
+            "click"
+          ],
+          "triggers": [
+            {
+              "triggerType": "LONG_CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "ACTIVATE"
+              }
+            }
+          ],
+          "visibleText": "长按按钮",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "longClickArea",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "area",
+            "long",
+            "click"
+          ],
+          "triggers": [
+            {
+              "triggerType": "LONG_CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "ACTIVATE"
+              }
+            }
+          ],
+          "visibleText": "长按区域",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "switchButton",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch",
+            "button"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switchButton_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "开关按钮",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "radioGroup",
+          "viewType": "RADIO_GROUP",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "radio",
+            "group"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "radioGroup_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "checkbox1",
+          "viewType": "CHECKBOX",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "checkbox1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "checkbox1_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "复选1",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "checkbox2",
+          "viewType": "CHECKBOX",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "checkbox2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "checkbox2_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "复选2",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "seekBarHorizontal",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "horizontal",
+            "seek",
+            "bar"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "seekBarHorizontal_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        },
+        {
+          "componentId": "seekBarVertical",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "vertical",
+            "seek",
+            "bar"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "seekBarVertical_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": true
+    },
+    {
+      "pageId": "SecondActivity2",
+      "components": [
+        {
+          "componentId": "taskCardStats",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "card",
+            "task",
+            "stats"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ThirdActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnCompleted",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "completed"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ThirdActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "查看已完成任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnPending",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "pending"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ThirdActivity",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "查看待办任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnCreate",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "create"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ThirdActivity3",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "创建新任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnEdit",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "edit",
+            "task"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "targetPageId": "ThirdActivity3",
+                "navigationRole": "ENTER_FLOW"
+              }
+            }
+          ],
+          "visibleText": "编辑任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnDelete",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "delete"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "taskBtnDelete_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "删除任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskBtnSearch",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "search"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "taskBtnSearch_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "搜索任务",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "taskFilterAll",
+          "viewType": "VIEW",
+          "semanticRole": "FILTER",
+          "intentTags": [
+            "task",
+            "filter",
+            "all"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "SELECT"
+              }
+            }
+          ],
+          "visibleText": "全部",
+          "canonicalIntent": "filter"
+        },
+        {
+          "componentId": "taskFilterWork",
+          "viewType": "VIEW",
+          "semanticRole": "FILTER",
+          "intentTags": [
+            "task",
+            "filter",
+            "work"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "SELECT"
+              }
+            }
+          ],
+          "visibleText": "工作",
+          "canonicalIntent": "filter"
+        },
+        {
+          "componentId": "taskFilterPersonal",
+          "viewType": "VIEW",
+          "semanticRole": "FILTER",
+          "intentTags": [
+            "task",
+            "filter",
+            "personal"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "SELECT"
+              }
+            }
+          ],
+          "visibleText": "个人",
+          "canonicalIntent": "filter"
+        },
+        {
+          "componentId": "taskFilterUrgent",
+          "viewType": "VIEW",
+          "semanticRole": "FILTER",
+          "intentTags": [
+            "urgent",
+            "task",
+            "filter"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "UI_INTERACTION",
+                "interactionRole": "SELECT"
+              }
+            }
+          ],
+          "visibleText": "紧急",
+          "canonicalIntent": "filter"
+        },
+        {
+          "componentId": "taskBtnBack",
+          "viewType": "VIEW",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "task",
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "返回第一层级",
+          "canonicalIntent": "back"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ThirdActivity",
+      "components": [
+        {
+          "componentId": "btnOption1",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption1_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项1",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption2",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption2_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项2",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption3",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption3_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项3",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption4",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option4"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption4_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项4",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnBack",
+          "viewType": "BUTTON",
+          "semanticRole": "NAVIGATE",
+          "intentTags": [
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "返回第二层级",
+          "canonicalIntent": "back"
+        },
+        {
+          "componentId": "switch1",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch1_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关1",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch2",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch2_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关2",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch3",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch3_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关3",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "slider",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "slider"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "slider_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ThirdActivity2",
+      "components": [
+        {
+          "componentId": "btnOption1",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption1_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项1",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption2",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption2_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项2",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption3",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption3_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项3",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption4",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option4"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption4_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项4",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnBack",
+          "viewType": "BUTTON",
+          "semanticRole": "NAVIGATE",
+          "intentTags": [
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "返回第二层级",
+          "canonicalIntent": "back"
+        },
+        {
+          "componentId": "switch1",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch1_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关1",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch2",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch2_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关2",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch3",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch3_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关3",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "slider",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "slider"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "slider_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ThirdActivity3",
+      "components": [
+        {
+          "componentId": "btnOption1",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption1_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项1",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption2",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption2_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项2",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption3",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption3_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项3",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnOption4",
+          "viewType": "BUTTON",
+          "semanticRole": "ACTION",
+          "intentTags": [
+            "option4"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "btnOption4_state",
+                "stateDelta": "CHANGED",
+                "stateType": "UNKNOWN",
+                "isReversible": true,
+                "stateImpact": "LOCAL"
+              }
+            }
+          ],
+          "visibleText": "第三层级3选项4",
+          "canonicalIntent": "action"
+        },
+        {
+          "componentId": "btnBack",
+          "viewType": "BUTTON",
+          "semanticRole": "NAVIGATE",
+          "intentTags": [
+            "back"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CLICK",
+              "effect": {
+                "effectType": "NAVIGATION",
+                "navigationRole": "BACK"
+              }
+            }
+          ],
+          "visibleText": "返回第二层级",
+          "canonicalIntent": "back"
+        },
+        {
+          "componentId": "switch1",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch1"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch1_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关1",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch2",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch2"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch2_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关2",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "switch3",
+          "viewType": "SWITCH",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "switch3"
+          ],
+          "triggers": [
+            {
+              "triggerType": "CHECKED_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "switch3_value",
+                "stateType": "BOOLEAN",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "visibleText": "第三层级3开关3",
+          "canonicalIntent": "toggle"
+        },
+        {
+          "componentId": "slider",
+          "viewType": "SEEKBAR",
+          "semanticRole": "INPUT",
+          "intentTags": [
+            "slider"
+          ],
+          "triggers": [
+            {
+              "triggerType": "PROGRESS_CHANGE",
+              "effect": {
+                "effectType": "STATE_CHANGE",
+                "stateScope": "PAGE_LOCAL",
+                "stateKey": "slider_value",
+                "stateType": "SCALAR",
+                "isReversible": true,
+                "stateImpact": "LOCAL",
+                "stateDelta": "CHANGED"
+              }
+            }
+          ],
+          "canonicalIntent": "input"
+        }
+      ],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ExecutorTestActivity",
+      "components": [],
+      "entryPoint": false
+    },
+    {
+      "pageId": "ExecutorTestFragment",
+      "components": [],
+      "entryPoint": false
+    },
+    {
+      "pageId": "SecondActivity",
+      "components": [],
+      "entryPoint": false
+    }
+  ]
+}

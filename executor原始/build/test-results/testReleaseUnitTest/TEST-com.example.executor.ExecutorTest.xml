@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.executor.ExecutorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-12-28T04:11:48.510Z" hostname="LAPTOP-NRMNDVQ6" time="3.756">
+  <properties/>
+  <testcase name="testUnknownIntent" classname="com.example.executor.ExecutorTest" time="3.648"/>
+  <testcase name="testIntentResolution" classname="com.example.executor.ExecutorTest" time="0.096"/>
+  <testcase name="testInvalidStateForIntent" classname="com.example.executor.ExecutorTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Executing intent: unknown_intent
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Current state: Home
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Executing intent: navigate_to_detail
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Current state: Detail
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Resolved action: Click(componentId=GoDetailButton)
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Executing intent: navigate_to_detail
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Current state: Detail
+12月 28, 2025 12:11:52 下午 com.example.executor.core.DefaultExecutor executeIntent
+信息: Resolved action: Click(componentId=GoDetailButton)
+]]></system-err>
+</testsuite>

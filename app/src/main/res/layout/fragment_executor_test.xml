@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ExecutorTestFragment">
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Executor Test Fragment"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/button_fragment_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Test Click"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_fragment_long_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Test Long Click"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text_fragment_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fragment Test EditText"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/check_box_fragment_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Test CheckBox"
+        android:layout_marginBottom="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_fragment_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/button_fragment_navigate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Navigate"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_view_fragment_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment Execution Result:"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/text_view_fragment_result_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

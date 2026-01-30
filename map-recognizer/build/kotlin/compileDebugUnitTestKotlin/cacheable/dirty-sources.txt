@@ -1,0 +1,3 @@
+C:\Users\13210\AndroidStudioProjects\GuideSystemTest\map-recognizer\src\test\kotlin\com\example\maprecognizer\data\DataModelTest.kt
+C:\Users\13210\AndroidStudioProjects\GuideSystemTest\map-recognizer\src\test\kotlin\com\example\maprecognizer\MainTest.kt
+C:\Users\13210\AndroidStudioProjects\GuideSystemTest\map-recognizer\src\test\kotlin\com\example\maprecognizer\generator\MapGeneratorTest.kt
