@@ -31,6 +31,7 @@ class ViewAppointmentActivity : AppCompatActivity() {
             binding.appointmentInfoContainer.visibility = View.GONE
             binding.textNoAppointment.visibility = View.VISIBLE
             binding.btnCancelAppointment.visibility = View.GONE
+            showToast("暂无挂号信息")
             return
         }
 
@@ -48,12 +49,29 @@ class ViewAppointmentActivity : AppCompatActivity() {
         val date = sharedPreferences.getString("$appointmentId.date", "")
         val time = sharedPreferences.getString("$appointmentId.time", "")
 
+        // 调试信息
+        showToast("加载挂号信息: $type, $department, $doctor, $date, $time")
+
         // 设置预约信息
-        binding.textClinicType.text = "挂号类型：${getAppointmentTypeText(type)}"
-        binding.textDepartment.text = "科室：${getDepartmentText(department)}"
-        binding.textDoctor.text = "医生：$doctor ($doctorTitle)"
-        binding.textDate.text = "日期：$date"
-        binding.textTime.text = "时间段：$time"
+        val clinicTypeText = "挂号类型：${getAppointmentTypeText(type)}"
+        val departmentText = "科室：${getDepartmentText(department)}"
+        val doctorText = "医生：$doctor ($doctorTitle)"
+        val dateText = "日期：$date"
+        val timeText = "时间段：$time"
+
+        // 确保文本不为空
+        binding.textClinicType.text = clinicTypeText
+        binding.textDepartment.text = departmentText
+        binding.textDoctor.text = doctorText
+        binding.textDate.text = dateText
+        binding.textTime.text = timeText
+
+        // 强制设置文本颜色为黑色，确保在任何背景下都能看清
+        binding.textClinicType.setTextColor(resources.getColor(android.R.color.black))
+        binding.textDepartment.setTextColor(resources.getColor(android.R.color.black))
+        binding.textDoctor.setTextColor(resources.getColor(android.R.color.black))
+        binding.textDate.setTextColor(resources.getColor(android.R.color.black))
+        binding.textTime.setTextColor(resources.getColor(android.R.color.black))
     }
 
     private fun getAppointmentTypeText(type: String?): String {
