@@ -214,6 +214,48 @@ class OverlayView(private val context: Context, private val listener: OverlayVie
         }
     }
     
+    /**
+     * 设置输入框文本
+     */
+    fun setInputText(text: String) {
+        try {
+            mainHandler.post {
+                try {
+                    if (::inputEditText.isInitialized) {
+                        inputEditText.setText(text)
+                    }
+                } catch (e: Exception) {
+                    Log.e("OverlayView", "设置输入框文本时出错: ${e.message}")
+                    e.printStackTrace()
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("OverlayView", "post到UI线程时出错: ${e.message}")
+            e.printStackTrace()
+        }
+    }
+    
+    /**
+     * 设置状态文本
+     */
+    fun setStatusText(text: String) {
+        try {
+            mainHandler.post {
+                try {
+                    if (::statusTextView.isInitialized) {
+                        statusTextView.text = text
+                    }
+                } catch (e: Exception) {
+                    Log.e("OverlayView", "设置状态文本时出错: ${e.message}")
+                    e.printStackTrace()
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("OverlayView", "post到UI线程时出错: ${e.message}")
+            e.printStackTrace()
+        }
+    }
+    
     fun isShowing(): Boolean {
         return isViewAdded
     }

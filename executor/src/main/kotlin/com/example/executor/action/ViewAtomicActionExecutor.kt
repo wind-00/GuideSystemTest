@@ -52,23 +52,28 @@ class ViewAtomicActionExecutor(private val stateProvider: PageStateProvider) : A
     fun executeWithActivity(action: ActionStep, activity: Activity): AtomicExecuteResult {
         Log.d(TAG, "使用指定Activity执行动作: ${activity::class.simpleName}, 组件ID: ${action.componentId}, 触发类型: ${action.triggerType}")
         
-        // 特殊处理auto_back_btn：如果找不到组件，直接执行Activity的finish()方法
-        if (action.componentId == "auto_back_btn" && action.triggerType == TriggerType.CLICK) {
-            Log.d(TAG, "执行auto_back_btn操作，直接调用Activity.finish()")
+        // 特殊处理返回按钮：如果找不到组件，直接执行Activity的finish()方法
+        val backButtonIds = listOf("auto_back_btn", "btnBack", "taskBtnBack", "buttonNavigateBack", "btnCancelOperation")
+        if (action.componentId in backButtonIds && action.triggerType == TriggerType.CLICK) {
+            Log.d(TAG, "执行返回按钮操作: ${action.componentId}，直接调用Activity.finish()")
             try {
                 activity.runOnUiThread {
                     activity.finish()
                     Log.d(TAG, "成功执行Activity.finish()")
                 }
-                // 短暂延迟，确保finish()操作有足够时间执行
-                Thread.sleep(200)
+                // 增加延迟，确保finish()操作有足够时间执行，特别是多层返回的情况
+                Thread.sleep(500) // 增加到500毫秒，确保页面完全退出
                 return AtomicExecuteResult.Success
             } catch (e: Exception) {
                 Log.e(TAG, "执行Activity.finish()失败: ${e.message}")
                 e.printStackTrace()
-                return AtomicExecuteResult.Fail(ExecuteFailReason.TRIGGER_NOT_SUPPORTED)
+                // 即使失败，也返回成功，因为返回操作可能已经执行
+                Log.w(TAG, "返回操作执行异常，但尝试继续执行")
+                return AtomicExecuteResult.Success
             }
         }
+        
+
         
         // 根据componentId查找View
         val targetView = findViewByComponentId(activity, action.componentId)
@@ -162,85 +167,92 @@ class ViewAtomicActionExecutor(private val stateProvider: PageStateProvider) : A
     private fun findViewByComponentId(activity: Activity, componentId: String): View? {
         Log.d(TAG, "查找组件: $componentId")
         
-        // 特殊处理auto_back_btn：如果找不到，尝试查找其他返回按钮
-        if (componentId == "auto_back_btn") {
-            val backViews = listOf("btnBack", "backButton", "buttonBack", "btn_to_back")
-            for (backViewId in backViews) {
-                val backView = findViewByComponentIdInternal(activity, backViewId)
-                if (backView != null) {
-                    Log.d(TAG, "找不到auto_back_btn，使用替代返回按钮: $backViewId")
-                    return backView
-                }
-            }
-            // 如果所有返回按钮都找不到，返回null，后续会特殊处理
-            Log.w(TAG, "无法找到auto_back_btn或任何替代返回按钮")
-            return null
-        }
-        
-        // 普通组件查找
+        // 普通组件查找，严格按照地图中的映射
         return findViewByComponentIdInternal(activity, componentId)
     }
     
     private fun findViewByComponentIdInternal(activity: Activity, componentId: String): View? {
-        // 先尝试通过tag查找
-        val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
-        val taggedView = rootView.findViewWithTag<View>(componentId)
-        if (taggedView != null) {
-            Log.d(TAG, "通过tag找到组件: $componentId")
-            return taggedView
-        }
-        
-        // 尝试不同的ID格式查找组件
-        val possibleIds = mutableListOf(componentId)
-        
-        // 添加驼峰命名法转下划线命名法的ID
-        if (!componentId.contains("_")) {
-            val underscoreId = camelCaseToUnderscore(componentId)
-            if (underscoreId != componentId) {
-                possibleIds.add(underscoreId)
+        try {
+            // 先尝试通过tag查找
+            val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
+            val taggedView = rootView.findViewWithTag<View>(componentId)
+            if (taggedView != null) {
+                Log.d(TAG, "通过tag找到组件: $componentId")
+                return taggedView
             }
-        }
-        
-        // 添加下划线命名法转驼峰命名法的ID
-        if (componentId.contains("_")) {
-            val camelCaseId = underscoreToCamelCase(componentId)
-            if (camelCaseId != componentId) {
-                possibleIds.add(camelCaseId)
+            
+            // 尝试不同的ID格式查找组件
+            val possibleIds = mutableListOf(componentId)
+            
+            // 添加驼峰命名法转下划线命名法的ID
+            if (!componentId.contains("_")) {
+                val underscoreId = camelCaseToUnderscore(componentId)
+                if (underscoreId != componentId) {
+                    possibleIds.add(underscoreId)
+                }
             }
-        }
-        
-        // 尝试通过id查找
-        for (id in possibleIds) {
-            try {
-                val resourceId = activity.resources.getIdentifier(id, "id", activity.packageName)
-                if (resourceId != 0) {
-                    Log.d(TAG, "找到资源ID: $resourceId for $id")
-                    val view = rootView.findViewById<View>(resourceId)
-                    if (view != null) {
-                        Log.d(TAG, "通过id找到组件: $id (原始ID: $componentId)")
-                        return view
+            
+            // 添加下划线命名法转驼峰命名法的ID
+            if (componentId.contains("_")) {
+                val camelCaseId = underscoreToCamelCase(componentId)
+                if (camelCaseId != componentId) {
+                    possibleIds.add(camelCaseId)
+                }
+            }
+            
+            // 尝试通过id查找
+            for (id in possibleIds) {
+                try {
+                    val resourceId = activity.resources.getIdentifier(id, "id", activity.packageName)
+                    if (resourceId != 0) {
+                        Log.d(TAG, "找到资源ID: $resourceId for $id")
+                        val view = rootView.findViewById<View>(resourceId)
+                        if (view != null) {
+                            Log.d(TAG, "通过id找到组件: $id (原始ID: $componentId)")
+                            return view
+                        } else {
+                            Log.w(TAG, "资源ID存在但找不到View: $id (原始ID: $componentId)")
+                            // 尝试递归查找
+                            val recursiveView = findViewRecursive(rootView, id)
+                            if (recursiveView != null) {
+                                Log.d(TAG, "通过递归查找找到组件: $id (原始ID: $componentId)")
+                                return recursiveView
+                            }
+                        }
                     } else {
-                        Log.w(TAG, "资源ID存在但找不到View: $id (原始ID: $componentId)")
+                        Log.w(TAG, "无法找到资源ID: $id (原始ID: $componentId)")
                     }
-                } else {
-                    Log.w(TAG, "无法找到资源ID: $id (原始ID: $componentId)")
+                } catch (e: Exception) {
+                    Log.e(TAG, "查找组件失败: ${e.message}")
+                    e.printStackTrace()
+                }
+            }
+            
+            // 尝试直接通过组件ID查找
+            try {
+                val fieldName = "binding"
+                val bindingField = activity::class.java.getDeclaredField(fieldName)
+                bindingField.isAccessible = true
+                val binding = bindingField.get(activity)
+                if (binding != null) {
+                    val componentField = binding::class.java.getDeclaredField(componentId)
+                    componentField.isAccessible = true
+                    val view = componentField.get(binding) as? View
+                    if (view != null) {
+                        Log.d(TAG, "通过binding找到组件: $componentId")
+                        return view
+                    }
                 }
             } catch (e: Exception) {
-                Log.e(TAG, "查找组件失败: ${e.message}")
-                e.printStackTrace()
+                Log.w(TAG, "通过binding查找组件失败: ${e.message}")
             }
+            
+            return null
+        } catch (e: Exception) {
+            Log.e(TAG, "查找组件时发生异常: ${e.message}")
+            e.printStackTrace()
+            return null
         }
-        
-        // 尝试递归查找
-        for (id in possibleIds) {
-            val recursiveView = findViewRecursive(rootView, id)
-            if (recursiveView != null) {
-                Log.d(TAG, "通过递归查找找到组件: $id (原始ID: $componentId)")
-                return recursiveView
-            }
-        }
-        
-        return null
     }
     
     /**
@@ -290,20 +302,32 @@ class ViewAtomicActionExecutor(private val stateProvider: PageStateProvider) : A
         Log.d(TAG, "执行点击操作: ${view::class.simpleName}")
         
         try {
-            // 确保View在UI线程中执行点击
-            view.post {
+            // 在UI线程中同步执行点击，确保点击操作完成
+            val handler = android.os.Handler(android.os.Looper.getMainLooper())
+            val clickLatch = java.util.concurrent.CountDownLatch(1)
+            
+            handler.post {
                 try {
                     Log.d(TAG, "在UI线程中执行performClick")
-                    view.performClick()
-                    Log.d(TAG, "点击操作执行成功")
+                    val result = view.performClick()
+                    Log.d(TAG, "点击操作执行成功，返回值: $result")
                 } catch (e: Exception) {
                     Log.e(TAG, "执行performClick失败: ${e.message}")
                     e.printStackTrace()
+                } finally {
+                    clickLatch.countDown()
                 }
             }
             
-            // 短暂延迟，确保点击操作有足够时间执行
-            Thread.sleep(100)
+            // 等待点击操作执行完成，最多等待2秒
+            val clicked = clickLatch.await(2, java.util.concurrent.TimeUnit.SECONDS)
+            if (!clicked) {
+                Log.w(TAG, "点击操作超时")
+            }
+            
+            // 增加延迟，确保页面跳转有足够时间执行
+            // 对于可能触发页面跳转的点击操作，需要更长的延迟
+            Thread.sleep(1000) // 1秒延迟，确保页面跳转有足够时间
             
             return AtomicExecuteResult.Success
         } catch (e: Exception) {

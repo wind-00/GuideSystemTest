@@ -1,90 +1,292 @@
-# 医院导诊系统修复说明
+# 可复用自动操控助手项目指南
 
-## 问题描述
-1. **地图文件读取问题**：应用无法直接导入 `fsm_transition.json` 作为地图，导致每次地图不会正常更新
-2. **Planner 找不到目标动作**：Planner 无法找到 "查看挂号" 动作
-3. **执行器找不到组件**：执行器无法找到组件，导致执行失败
+## 1. 项目概述
 
-## 解决方案
+本项目是一个可复用的自动操控助手工具，可附加在正常的Android应用上，将其转化为具有自动操控能力的应用。系统采用模块化设计，包含四个核心模块：`map`、`planner`、`executor`和`orchestrator`，各模块职责明确，通过标准化接口进行交互。
 
-### 1. 创建 assets 目录并复制地图文件
-- 在 `app/src/main` 目录下创建 `assets` 目录
-- 将 `fsm_transition.json` 文件复制到 `assets` 目录中
-- 确保应用在安装后能直接访问该文件
+## 2. 系统架构与交互关系
 
-### 2. 修改 MainActivity.kt 文件
-- 添加从 assets 目录读取 `fsm_transition.json` 文件的功能
-- 实现多级后备方案：优先从 assets 目录读取，失败后尝试从绝对路径和项目根目录读取
-- 添加详细的日志，追踪文件读取过程
-- 添加 `plannerClient.setContext(this)` 调用，将 context 传递给 PlannerClientImpl
+### 2.1 模块之间和用户、App配合关系
 
-### 3. 修改 PlannerClient.kt 接口
-- 添加 `setContext(context: Context)` 方法，允许从 MainActivity 传递 context
+```mermaid
+graph TD
+    %% 定义样式
+    classDef userStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef coordStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
+    classDef coreStyle fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#E65100
+    classDef dataStyle fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#4A148C
+    classDef appStyle fill:#EEEEEE,stroke:#616161,stroke-width:2px,color:#212121
+    
+    %% 节点定义
+    subgraph 用户层
+        User[用户] -->|输入请求| Overlay[悬浮覆盖视图]
+        class User,Overlay userStyle
+    end
 
-### 4. 修改 PlannerClientImpl.kt 文件
-- 添加 `context` 字段，用于从 assets 目录读取文件
-- 实现 `setContext` 方法，接收并存储 context
-- 改进文件加载机制：优先使用 context 从 assets 目录读取 `fsm_transition.json` 文件，失败后尝试从其他路径读取
-- 在 `plan` 方法中添加详细的日志，追踪 Planner 的操作过程
-- 修复 actionId=35 的映射问题，确保执行器能找到对应的组件
-- 将所有 println 语句替换为 Log.d 语句，确保在 Android 设备上能看到日志
-- 更新默认映射，包含 `fsm_transition.json` 中的所有 actionId 到 componentId 的映射
-- 确保 Planner 能正确识别和使用动作
+    subgraph 协调层
+        Overlay -->|传递请求| Orchestrator[协调器]
+        Orchestrator -->|状态反馈| Overlay
+        class Orchestrator coordStyle
+    end
 
-### 5. 修改 Planner.kt 文件
-- 改进所有搜索方法（enhancedBfs、enhancedDfs、bfs、dfs、bfsToPage、dfsToPage），让它们能处理返回按钮的情况
-- 当 `toPages` 为空数组时，将其视为一个可以执行的动作，让执行器尝试执行这个返回操作
-- 确保 Planner 能找到从 ViewAppointmentActivity 到 SecondActivity1 的路径
+    subgraph 核心层
+        Orchestrator -->|路径规划请求| Planner[路径规划器]
+        Planner -->|规划结果| Orchestrator
+        Orchestrator -->|执行请求| Executor[执行引擎]
+        Executor -->|执行结果| Orchestrator
+        class Planner,Executor coreStyle
+    end
 
-### 6. 修改 Planner.kt 文件（添加返回按钮策略）
-- 添加 `tryReturnPath` 方法，当无法找到直接路径时，尝试使用返回按钮策略寻找路径
-- 当无法找到从当前页面到目标页面的直接路径时，尝试执行返回按钮动作，然后从其他页面寻找路径
-- 确保 Planner 能找到从 SecondActivity1 到 SecondActivity2 的路径
+    subgraph 数据层
+        Map[UI地图生成器] -->|UI地图| Planner
+        class Map dataStyle
+    end
 
-### 7. 验证修复效果
-- 确保应用能直接导入 `fsm_transition.json` 作为地图
-- 验证 Planner 能找到 "查看挂号" 动作
-- 确保执行器能找到对应的组件并执行动作
-- 验证 Planner 能找到从 ViewAppointmentActivity 到 SecondActivity1 的路径，支持返回按钮操作
-- 验证 Planner 能找到从 SecondActivity1 到 SecondActivity2 的路径，支持返回按钮策略
+    subgraph 应用层
+        Executor -->|操作| App[目标应用]
+        App -->|状态| Executor
+        class App appStyle
+    end
+```
 
-## 技术原理
+### 2.1.1 简洁版模块连接图
 
-### 文件读取机制
-- **assets 目录**：应用安装后，assets 目录中的文件会被打包到 APK 中，应用可以直接访问
-- **多级后备**：当从 assets 目录读取失败时，会尝试从绝对路径和项目根目录读取，确保在不同环境下都能正常工作
+```mermaid
+graph TD
+    %% 定义样式
+    classDef userStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef coordStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
+    classDef coreStyle fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#E65100
+    classDef dataStyle fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px,color:#4A148C
+    classDef appStyle fill:#EEEEEE,stroke:#616161,stroke-width:2px,color:#212121
+    
+    %% 节点定义
+    User[用户] -->|输入请求| Overlay[悬浮覆盖视图]
+    Overlay -->|传递请求| Orchestrator[协调器]
+    Orchestrator -->|路径规划请求| Planner[路径规划器]
+    Map[UI地图生成器] -->|UI地图| Planner
+    Planner -->|规划结果| Orchestrator
+    Orchestrator -->|执行请求| Executor[执行引擎]
+    Executor -->|操作| App[目标应用]
+    App -->|状态| Executor
+    Executor -->|执行结果| Orchestrator
+    Orchestrator -->|状态反馈| Overlay
+    
+    %% 应用样式
+    class User,Overlay userStyle
+    class Orchestrator coordStyle
+    class Planner,Executor coreStyle
+    class Map dataStyle
+    class App appStyle
+```
 
-### 动作映射机制
-- **actionId 到 componentId**：`fsm_transition.json` 文件中定义了 actionId 到 (componentId, triggerType) 的映射
-- **默认映射**：当无法读取 `fsm_transition.json` 文件时，使用硬编码的默认映射作为后备
-- **详细日志**：添加详细的日志，追踪文件读取和 Planner 操作过程，便于排查问题
+### 2.2 各模块运作流程
 
-### 执行器组件查找
-- **组件查找**：执行器通过 componentId 查找对应的 View 组件
-- **多种查找方式**：尝试通过 tag、id 和递归查找等多种方式查找组件
-- **特殊处理**：对返回按钮等特殊组件进行特殊处理，提高执行成功率
+#### 2.2.1 Map模块运作流程
 
-### 返回按钮处理
-- **Planner 支持**：Planner 现在能处理返回按钮的情况，当 `toPages` 为空数组时，将其视为一个可以执行的动作
-- **路径规划**：Planner 能找到从 ViewAppointmentActivity 到 SecondActivity1 的路径，支持返回按钮操作
-- **返回按钮策略**：当无法找到直接路径时，Planner 会尝试执行返回按钮动作，然后从其他页面寻找路径
-- **执行器支持**：执行器能执行返回按钮操作，返回到上一个页面
+```mermaid
+graph TD
+    %% 定义样式
+    classDef startStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20,shape:circle
+    classDef processStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef endStyle fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#B71C1C,shape:circle
+    
+    %% 节点定义
+    Start[开始] -->|输入代码目录| FindFiles[查找Kotlin和XML文件]
+    FindFiles --> ParseXML[解析XML布局文件]
+    ParseXML --> ExtractPages[提取页面信息]
+    ExtractPages --> ExtractComponents[提取组件信息]
+    ExtractComponents --> ExtractEffects[提取效果信息]
+    ExtractEffects --> ValidateMap[验证并增强UI地图]
+    ValidateMap --> GenerateJSON[生成UI地图JSON文件]
+    GenerateJSON --> End[结束]
+    
+    %% 应用样式
+    class Start startStyle
+    class FindFiles,ParseXML,ExtractPages,ExtractComponents,ExtractEffects,ValidateMap,GenerateJSON processStyle
+    class End endStyle
+```
 
-## 修复效果
-- ✅ 应用能直接导入 `fsm_transition.json` 作为地图
-- ✅ Planner 能找到 "查看挂号" 动作
-- ✅ 执行器能找到对应的组件并执行动作
-- ✅ 应用在卸载/重装后能正常工作
-- ✅ 详细的日志便于排查问题
-- ✅ Planner 能找到从 ViewAppointmentActivity 到 SecondActivity1 的路径，支持返回按钮操作
-- ✅ Planner 能找到从 SecondActivity1 到 SecondActivity2 的路径，支持返回按钮策略
+#### 2.2.2 Planner模块运作流程
 
-## 使用说明
-1. 确保 `fsm_transition.json` 文件已复制到 `assets` 目录中
-2. 运行应用，测试导诊功能
-3. 查看日志，确认文件读取和 Planner 操作过程正常
+```mermaid
+graph TD
+    %% 定义样式
+    classDef startStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20,shape:circle
+    classDef processStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef decisionStyle fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#E65100,shape:diamond
+    classDef endStyle fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#B71C1C,shape:circle
+    
+    %% 节点定义
+    Start[开始] -->|输入起始页面和目标| LoadMap[加载UI地图]
+    LoadMap --> FindTarget[确定目标Action和页面]
+    FindTarget --> BuildInitialState[构建初始状态]
+    BuildInitialState --> SelectStrategy[选择搜索策略]
+    SelectStrategy -->|BFS| BFS[执行BFS搜索]
+    SelectStrategy -->|DFS| DFS[执行DFS搜索]
+    BFS --> GeneratePath[生成操作路径]
+    DFS --> GeneratePath
+    GeneratePath --> ReturnResult[返回路径规划结果]
+    ReturnResult --> End[结束]
+    
+    %% 应用样式
+    class Start startStyle
+    class LoadMap,FindTarget,BuildInitialState,BFS,DFS,GeneratePath,ReturnResult processStyle
+    class SelectStrategy decisionStyle
+    class End endStyle
+```
 
-## 注意事项
-- 当修改 `fsm_transition.json` 文件后，需要重新编译应用，确保新的地图文件被打包到 APK 中
-- 如果在开发环境中运行，应用会优先从 assets 目录读取地图文件，失败后尝试从绝对路径和项目根目录读取
-- 如果在生产环境中运行，应用会从 assets 目录读取地图文件
+#### 2.2.3 Executor模块运作流程
+
+```mermaid
+graph TD
+    %% 定义样式
+    classDef startStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20,shape:circle
+    classDef processStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef decisionStyle fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#E65100,shape:diamond
+    classDef successStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
+    classDef failureStyle fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#B71C1C
+    classDef endStyle fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#B71C1C,shape:circle
+    
+    %% 节点定义
+    Start[开始] -->|输入操作路径| ValidateStartPage[校验起始页面]
+    ValidateStartPage --> ExecuteSteps[顺序执行动作步骤]
+    ExecuteSteps --> ExecuteAtomicAction[执行原子动作]
+    ExecuteAtomicAction --> CheckTimeout[检查执行超时]
+    CheckTimeout -->|超时| ReturnFailure[返回执行失败]
+    CheckTimeout -->|成功| WaitUIStable[等待UI稳定]
+    WaitUIStable --> CheckUITimeout[检查UI稳定超时]
+    CheckUITimeout -->|超时| ReturnFailure
+    CheckUITimeout -->|成功| SensePageState[重新感知页面状态]
+    SensePageState -->|还有步骤| ExecuteSteps
+    SensePageState -->|无步骤| ReturnSuccess[返回执行成功]
+    ReturnFailure --> End[结束]
+    ReturnSuccess --> End
+    
+    %% 应用样式
+    class Start startStyle
+    class ValidateStartPage,ExecuteSteps,ExecuteAtomicAction,WaitUIStable,SensePageState processStyle
+    class CheckTimeout,CheckUITimeout,SensePageState decisionStyle
+    class ReturnSuccess successStyle
+    class ReturnFailure failureStyle
+    class End endStyle
+```
+
+#### 2.2.4 Orchestrator模块运作流程
+
+```mermaid
+graph TD
+    %% 定义样式
+    classDef startStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20,shape:circle
+    classDef processStyle fill:#E3F2FD,stroke:#2196F3,stroke-width:2px,color:#0D47A1
+    classDef decisionStyle fill:#FFF3E0,stroke:#FF9800,stroke-width:2px,color:#E65100,shape:diamond
+    classDef successStyle fill:#E8F5E8,stroke:#4CAF50,stroke-width:2px,color:#1B5E20
+    classDef failureStyle fill:#FFEBEE,stroke:#F44336,stroke-width:2px,color:#B71C1C
+    
+    %% 节点定义
+    Start[开始] -->|输入用户请求| ParseRequest[解析用户请求]
+    ParseRequest --> CallPlanner[调用Planner进行路径规划]
+    CallPlanner --> GetPlanResult[获取规划结果]
+    GetPlanResult -->|规划失败| ReturnPlanError[返回规划错误]
+    GetPlanResult -->|规划成功| CallExecutor[调用Executor执行路径]
+    CallExecutor --> GetExecuteResult[获取执行结果]
+    GetExecuteResult -->|执行失败| ReturnExecuteError[返回执行错误]
+    GetExecuteResult -->|执行成功| ReturnSuccess[返回执行成功]
+    ReturnPlanError --> UpdateStatus[更新系统状态]
+    ReturnExecuteError --> UpdateStatus
+    ReturnSuccess --> UpdateStatus
+    UpdateStatus --> WaitRequest[等待新的请求]
+    WaitRequest --> ParseRequest
+    
+    %% 应用样式
+    class Start startStyle
+    class ParseRequest,CallPlanner,CallExecutor,UpdateStatus,WaitRequest processStyle
+    class GetPlanResult,GetExecuteResult decisionStyle
+    class ReturnSuccess successStyle
+    class ReturnPlanError,ReturnExecuteError failureStyle
+```
+
+## 3. 核心模块功能与职责
+
+### 3.1 Map模块
+
+**功能**：从Android Kotlin代码中静态生成UI地图JSON文件，为路径规划提供基础数据。
+
+**核心职责**：
+- 查找和解析Kotlin代码和XML布局文件
+- 提取页面、组件和效果信息
+- 验证并增强UI地图
+- 生成标准化的UI地图JSON文件
+
+### 3.2 Planner模块
+
+**功能**：基于UI地图执行路径规划，生成从起始页面到目标页面的最优操作路径。
+
+**核心职责**：
+- 加载和解析UI地图数据
+- 确定目标Action和页面
+- 构建初始状态
+- 执行图搜索（BFS或DFS）
+- 生成最优操作路径
+
+### 3.3 Executor模块
+
+**功能**：执行由planner生成的操作路径，实现自动化操作。
+
+**核心职责**：
+- 校验起始页面
+- 顺序执行每个动作步骤
+- 执行原子动作（带超时检测）
+- 等待UI稳定（带超时检测）
+- 重新感知页面状态
+- 返回执行结果
+
+### 3.4 Orchestrator模块
+
+**功能**：协调其他模块的工作，接收用户请求，调用planner进行路径规划，然后调用executor执行规划的路径。
+
+**核心职责**：
+- 接收和解析用户请求
+- 调用planner进行路径规划
+- 调用executor执行规划的路径
+- 监控执行状态
+- 反馈执行结果
+- 管理系统状态
+
+## 4. 技术特点与优势
+
+### 4.1 可复用性
+- 模块化设计，可作为独立库集成到任何Android应用
+- 标准化接口，便于与不同应用集成
+- 无需修改原有应用代码，只需附加本工具
+
+### 4.2 智能路径规划
+- 支持BFS和DFS两种搜索策略
+- 基于UI地图的静态分析，提高路径规划准确性
+- 考虑页面跳转和组件交互，生成最优操作路径
+
+### 4.3 实时执行控制
+- 带超时检测的执行机制，提高系统稳定性
+- 实时UI稳定检测，确保操作执行成功
+- 实时页面状态感知，适应动态UI变化
+
+### 4.4 用户友好的交互
+- 悬浮覆盖视图，方便用户随时输入请求
+- 实时执行状态反馈，让用户了解操作进展
+- 简洁的错误提示，帮助用户理解失败原因
+
+## 5. 应用场景
+
+- **自动化测试**：自动执行应用中的操作流程，提高测试效率
+- **用户辅助**：为用户提供自动化操作助手，简化复杂操作
+- **无障碍功能**：为有障碍用户提供操作辅助，提高应用可访问性
+- **演示和教程**：自动执行应用操作，用于产品演示和教程制作
+
+## 6. 总结
+
+本项目实现了一个可复用的自动操控助手工具，通过模块化设计和标准化接口，可轻松集成到任何Android应用中，为应用添加自动化操作能力。系统采用静态分析生成UI地图，结合智能路径规划和实时执行控制，实现了高效、准确的自动化操作。该工具具有广泛的应用场景，可提高应用的易用性、可测试性和可访问性。
+
+---
+
+**版本**: 1.0.0
+**更新日期**: 2026-01-30

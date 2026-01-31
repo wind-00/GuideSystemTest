@@ -128,6 +128,8 @@ class MainActivity : AppCompatActivity() {
         overlayManager.setRuntimeStateProvider(runtimeStateProvider)
         // 设置ActivityPageStateProvider并注册监听器
         overlayManager.setActivityPageStateProvider(pageStateProvider)
+        // 设置执行器，用于特殊对话结束后执行路径
+        overlayManager.setExecutor(executor)
         
         // 初始化orchestrator
         orchestrator = OrchestratorImpl(

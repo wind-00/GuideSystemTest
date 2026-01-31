@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.executor.action.ViewAtomicActionExecutorTest" tests="6" skipped="0" failures="6" errors="0" timestamp="2026-01-30T16:14:41.398Z" hostname="LAPTOP-NRMNDVQ6" time="15.528">
+<testsuite name="com.example.executor.action.ViewAtomicActionExecutorTest" tests="6" skipped="0" failures="6" errors="0" timestamp="2026-01-31T01:57:03.517Z" hostname="LAPTOP-NRMNDVQ6" time="29.72">
   <properties/>
-  <testcase name="execute should return success for checked change action on checkbox" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="15.523">
-    <failure message="java.lang.ExceptionInInitializerError" type="java.lang.ExceptionInInitializerError">java.lang.ExceptionInInitializerError
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return success for checked change action on checkbox" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="29.556">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return success for checked change action on checkbox(ViewAtomicActionExecutorTest.kt:99)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -48,32 +50,23 @@
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.IllegalStateException: Could not self-attach to current VM using external process
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
-  <testcase name="execute should return success for long click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.001">
-    <failure message="java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return success for long click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.04">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return success for long click action on button(ViewAtomicActionExecutorTest.kt:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -108,32 +101,23 @@ Caused by: java.lang.IllegalStateException: Could not self-attach to current VM 
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Could not self-attach to current VM using external process [in thread &quot;Test worker&quot;]
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
-  <testcase name="execute should return fail for unsupported trigger type" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.001">
-    <failure message="java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return fail for unsupported trigger type" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.036">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return fail for unsupported trigger type(ViewAtomicActionExecutorTest.kt:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -168,32 +152,23 @@ Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalSta
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Could not self-attach to current VM using external process [in thread &quot;Test worker&quot;]
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
-  <testcase name="execute should return success for progress change action on progress bar" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.001">
-    <failure message="java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return success for progress change action on progress bar" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.028">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return success for progress change action on progress bar(ViewAtomicActionExecutorTest.kt:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -228,32 +203,23 @@ Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalSta
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Could not self-attach to current VM using external process [in thread &quot;Test worker&quot;]
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
-  <testcase name="execute should return success for touch action on edit text" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.001">
-    <failure message="java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return success for touch action on edit text" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.033">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return success for touch action on edit text(ViewAtomicActionExecutorTest.kt:125)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -288,32 +254,23 @@ Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalSta
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Could not self-attach to current VM using external process [in thread &quot;Test worker&quot;]
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
-  <testcase name="execute should return success for click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.001">
-    <failure message="java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class io.mockk.impl.JvmMockKGateway
-	at com.example.executor.action.ViewAtomicActionExecutorTest.&lt;init&gt;(ViewAtomicActionExecutorTest.kt:156)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
-	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
-	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+  <testcase name="execute should return success for click action on button" classname="com.example.executor.action.ViewAtomicActionExecutorTest" time="0.027">
+    <failure message="java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details." type="java.lang.RuntimeException">java.lang.RuntimeException: Method d in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.d(Log.java)
+	at com.example.executor.action.ViewAtomicActionExecutor.execute(ViewAtomicActionExecutor.kt:29)
+	at com.example.executor.action.ViewAtomicActionExecutorTest.execute should return success for click action on button(ViewAtomicActionExecutorTest.kt:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
@@ -348,17 +305,6 @@ Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalSta
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Could not self-attach to current VM using external process [in thread &quot;Test worker&quot;]
-	at net.bytebuddy.agent.ByteBuddyAgent.installExternal(ByteBuddyAgent.java:706)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:636)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:616)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:568)
-	at net.bytebuddy.agent.ByteBuddyAgent.install(ByteBuddyAgent.java:545)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.initInstrumentation(JvmMockKAgentFactory.kt:127)
-	at io.mockk.proxy.jvm.JvmMockKAgentFactory.init(JvmMockKAgentFactory.kt:33)
-	at io.mockk.impl.JvmMockKGateway.&lt;init&gt;(JvmMockKGateway.kt:46)
-	at io.mockk.impl.JvmMockKGateway.&lt;clinit&gt;(JvmMockKGateway.kt:185)
-	... 45 more
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>

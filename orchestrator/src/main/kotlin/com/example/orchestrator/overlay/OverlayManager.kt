@@ -3,8 +3,11 @@ package com.example.orchestrator.overlay
 import android.app.Activity
 import android.content.Context
 import android.util.Log
+import com.example.executor.core.Executor
 import com.example.executor.state.ActivityPageStateProvider
+import com.example.orchestrator.executor.ExecutorClient
 import com.example.orchestrator.model.OrchestratorStatus
+import com.example.orchestrator.planner.PlannerClient
 import com.example.orchestrator.state.RuntimeStateProvider
 
 class OverlayManager(private val context: Context) : OverlayView.OverlayViewListener, ActivityPageStateProvider.ActivityChangeListener {
@@ -12,6 +15,10 @@ class OverlayManager(private val context: Context) : OverlayView.OverlayViewList
     private var runtimeStateProvider: RuntimeStateProvider? = null
     private var serviceListener: OverlayService.OverlayServiceListener? = null
     private var activityPageStateProvider: ActivityPageStateProvider? = null
+    private var specialDialogManager: SpecialDialogManager? = null
+    private var executor: Executor? = null
+    private var executorClient: ExecutorClient? = null
+    private var plannerClient: PlannerClient? = null
     
     fun setRuntimeStateProvider(provider: RuntimeStateProvider) {
         runtimeStateProvider = provider
@@ -19,6 +26,53 @@ class OverlayManager(private val context: Context) : OverlayView.OverlayViewList
     
     fun setServiceListener(listener: OverlayService.OverlayServiceListener) {
         serviceListener = listener
+    }
+    
+    /**
+     * 设置执行器，用于特殊对话结束后执行路径
+     */
+    fun setExecutor(executor: Executor) {
+        this.executor = executor
+        // 只有当 overlayView 和 plannerClient 都初始化后，才创建 SpecialDialogManager
+        if (::overlayView.isInitialized && plannerClient != null) {
+            createSpecialDialogManager()
+        }
+        Log.d("OverlayManager", "设置执行器")
+    }
+    
+    /**
+     * 设置PlannerClient，用于特殊对话结束后生成路径
+     */
+    fun setPlannerClient(plannerClient: PlannerClient) {
+        this.plannerClient = plannerClient
+        // 只有当 overlayView、executor 和 executorClient 都初始化后，才创建 SpecialDialogManager
+        if (::overlayView.isInitialized && executor != null && executorClient != null) {
+            createSpecialDialogManager()
+        }
+        Log.d("OverlayManager", "设置PlannerClient")
+    }
+    
+    /**
+     * 设置ExecutorClient，用于特殊对话结束后执行路径
+     */
+    fun setExecutorClient(executorClient: ExecutorClient) {
+        this.executorClient = executorClient
+        // 只有当 overlayView、executor 和 plannerClient 都初始化后，才创建 SpecialDialogManager
+        if (::overlayView.isInitialized && executor != null && plannerClient != null) {
+            createSpecialDialogManager()
+        }
+        Log.d("OverlayManager", "设置ExecutorClient")
+    }
+    
+    /**
+     * 创建 SpecialDialogManager 实例
+     */
+    private fun createSpecialDialogManager() {
+        if (executor != null && executorClient != null && plannerClient != null && runtimeStateProvider != null && ::overlayView.isInitialized) {
+            specialDialogManager = SpecialDialogManager(context, overlayView, executor!!, plannerClient!!, executorClient!!, runtimeStateProvider!!)
+            specialDialogManager?.setOverlayManager(this)
+            Log.d("OverlayManager", "初始化SpecialDialogManager")
+        }
     }
     
     /**
@@ -47,6 +101,8 @@ class OverlayManager(private val context: Context) : OverlayView.OverlayViewList
                 if (!initSuccess) {
                     return false
                 }
+                // overlayView 初始化后，尝试创建 SpecialDialogManager
+                createSpecialDialogManager()
             }
             val showSuccess = overlayView.show()
             if (showSuccess) {
@@ -87,7 +143,14 @@ class OverlayManager(private val context: Context) : OverlayView.OverlayViewList
     }
     
     override fun onExecuteClicked(inputText: String) {
-        serviceListener?.onExecuteClicked(inputText)
+        // 检查是否是特殊对话输入
+        if (specialDialogManager?.handleInput(inputText) == true) {
+            // 特殊对话处理中，不需要调用原始的serviceListener
+            Log.d("OverlayManager", "特殊对话处理中")
+        } else {
+            // 正常输入，调用原始的serviceListener
+            serviceListener?.onExecuteClicked(inputText)
+        }
     }
     
     override fun onStopClicked() {

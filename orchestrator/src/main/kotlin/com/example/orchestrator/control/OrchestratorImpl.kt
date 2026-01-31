@@ -27,6 +27,8 @@ class OrchestratorImpl(
     
     init {
         overlayManager.setServiceListener(this)
+        overlayManager.setPlannerClient(plannerClient)
+        overlayManager.setExecutorClient(executorClient)
     }
     
     override fun startExecution(inputText: String) {

@@ -40,7 +40,8 @@ def parse_click_effects(file_content):
     # 匹配binding.xxx.setOnClickListener {
     #     // 回调逻辑
     # }
-    click_pattern = re.compile(r'binding\.(\w+)\.setOnClickListener\s*\{([^}]*)\}')
+    # 使用更复杂的正则表达式来处理嵌套的大括号
+    click_pattern = re.compile(r'binding\.(\w+)\.setOnClickListener\s*\{((?:[^{}]|\{[^{}]*\})*)\}')
     matches = click_pattern.finditer(file_content, re.DOTALL)
     
     for match in matches:
@@ -63,6 +64,7 @@ def parse_click_effects(file_content):
             startActivity_matches = startActivity_pattern.finditer(callback_content)
             
             has_navigation = False
+            
             for startActivity_match in startActivity_matches:
                 target_page_id = startActivity_match.group(1)
                 
@@ -74,11 +76,24 @@ def parse_click_effects(file_content):
                 else:
                     navigation_role = 'ENTER_FLOW'
                 
-                component_effects.append({
+                effect = {
                     'effectType': 'NAVIGATION',
                     'targetPageId': target_page_id,
                     'navigationRole': navigation_role
-                })
+                }
+                
+                # 检查是否有存储操作（SharedPreferences）
+                # 或者是否是与预约相关的选择按键（会影响最终存储内容）
+                is_appointment_selection = component_id in ['btnSelectDate', 'btnTimeMorning', 'btnTimeAfternoon']
+                is_appointment_type_selection = component_id in ['btnNormalClinic', 'btnExpertClinic', 'btnEmergency', 'btnPhysicalExam', 'btnChronicDisease']
+                is_department_selection = component_id in ['btnInternalMedicine', 'btnSurgery', 'btnPediatrics', 'btnObstetricsAndGynecology', 'btnOphthalmology', 'btnOtolaryngology', 'btnDentistry', 'btnDermatology', 'btnNeurology', 'btnCardiology']
+                if 'getSharedPreferences' in callback_content or 'save' in callback_content.lower() or 'saveAppointmentInfo' in callback_content or is_appointment_selection or is_appointment_type_selection or is_department_selection:
+                    effect['sideEffects'] = [{
+                        'type': 'STORAGE',
+                        'description': '存储信息'
+                    }]
+                
+                component_effects.append(effect)
                 has_navigation = True
             
             # 如果没有页面跳转，检查是否有状态改变操作
@@ -100,18 +115,44 @@ def parse_click_effects(file_content):
                         # 尝试从组件ID生成语义明确的状态信息
                         state_key_full = f'{component_id}_state'
                     
-                    component_effects.append({
+                    effect = {
                         'effectType': 'STATE_CHANGE',
                         'stateScope': 'PAGE_LOCAL',
                         'stateKey': state_key_full,
                         'stateDelta': 'CHANGED'
-                    })
+                    }
+                    
+                    # 检查是否有存储操作（SharedPreferences）
+                    # 或者是否是与预约相关的选择按键（会影响最终存储内容）
+                    is_appointment_selection = component_id in ['btnSelectDate', 'btnTimeMorning', 'btnTimeAfternoon']
+                    is_appointment_type_selection = component_id in ['btnNormalClinic', 'btnExpertClinic', 'btnEmergency', 'btnPhysicalExam', 'btnChronicDisease']
+                    is_department_selection = component_id in ['btnInternalMedicine', 'btnSurgery', 'btnPediatrics', 'btnObstetricsAndGynecology', 'btnOphthalmology', 'btnOtolaryngology', 'btnDentistry', 'btnDermatology', 'btnNeurology', 'btnCardiology']
+                    if 'getSharedPreferences' in callback_content or 'save' in callback_content.lower() or 'saveAppointmentInfo' in callback_content or is_appointment_selection or is_appointment_type_selection or is_department_selection:
+                        effect['sideEffects'] = [{
+                            'type': 'STORAGE',
+                            'description': '存储信息'
+                        }]
+                    
+                    component_effects.append(effect)
                 else:
                     # 纯交互操作
-                    component_effects.append({
+                    effect = {
                         'effectType': 'UI_INTERACTION',
                         'interactionRole': 'CONFIRM'
-                    })
+                    }
+                    
+                    # 检查是否有存储操作（SharedPreferences）
+                    # 或者是否是与预约相关的选择按键（会影响最终存储内容）
+                    is_appointment_selection = component_id in ['btnSelectDate', 'btnTimeMorning', 'btnTimeAfternoon']
+                    is_appointment_type_selection = component_id in ['btnNormalClinic', 'btnExpertClinic', 'btnEmergency', 'btnPhysicalExam', 'btnChronicDisease']
+                    is_department_selection = component_id in ['btnInternalMedicine', 'btnSurgery', 'btnPediatrics', 'btnObstetricsAndGynecology', 'btnOphthalmology', 'btnOtolaryngology', 'btnDentistry', 'btnDermatology', 'btnNeurology', 'btnCardiology']
+                    if 'getSharedPreferences' in callback_content or 'save' in callback_content.lower() or 'saveAppointmentInfo' in callback_content or is_appointment_selection or is_appointment_type_selection or is_department_selection:
+                        effect['sideEffects'] = [{
+                            'type': 'STORAGE',
+                            'description': '存储信息'
+                        }]
+                    
+                    component_effects.append(effect)
         
         effects[component_id] = component_effects
     

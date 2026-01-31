@@ -547,7 +547,7 @@ class Planner(private val uiMap: UiMapModel) {
     }
     
     /**
-     * 尝试使用返回按钮策略寻找路径
+     * 尝试使用返回按钮策略寻找路径，支持多层返回
      * @param initialNode 初始节点
      * @param targetPageIdx 目标页面索引
      * @return 路径规划结果
@@ -562,26 +562,28 @@ class Planner(private val uiMap: UiMapModel) {
             )
         }
         
-        // 获取当前页面的所有可执行action
-        val actions = uiMap.transition[initialNode.pageIdx] ?: emptyMap()
+        // 获取主页面索引
+        val mainPageIdx = uiMap.page_index["MainActivity"] ?: return PlanResult(
+            success = false,
+            actionPath = emptyList(),
+            reason = REASON_NO_PATH_FOUND
+        )
         
-        // 查找返回按钮
-        for ((actionId, toPages) in actions) {
-            // 检查是否是返回按钮（toPages为空数组）
-            if (toPages.isEmpty()) {
-                // 创建新的路径，包含返回按钮动作
-                val newPath = initialNode.path + actionId
-                
-                // 尝试直接执行返回按钮动作，然后从主页面寻找路径
-                // 这里我们假设返回按钮会返回到主页面
-                val mainPageIdx = uiMap.page_index["MainActivity"] ?: return PlanResult(
-                    success = false,
-                    actionPath = emptyList(),
-                    reason = REASON_NO_PATH_FOUND
-                )
-                
+        // 检查是否已经在主页面
+        if (initialNode.pageIdx == mainPageIdx) {
+            return findPathFromPage(mainPageIdx, targetPageIdx, initialNode.path)
+        }
+        
+        // 尝试多层返回策略
+        val maxReturnSteps = 10 // 最大返回步数，防止无限循环
+        
+        // 生成所有可能的返回路径长度
+        for (returnSteps in 1..maxReturnSteps) {
+            // 构建返回路径
+            val returnPath = buildReturnPath(initialNode, returnSteps)
+            if (returnPath.isNotEmpty()) {
                 // 检查是否有从主页面到目标页面的路径
-                val result = findPathFromPage(mainPageIdx, targetPageIdx, newPath)
+                val result = findPathFromPage(mainPageIdx, targetPageIdx, returnPath)
                 if (result.success) {
                     return result
                 }
@@ -594,6 +596,37 @@ class Planner(private val uiMap: UiMapModel) {
             actionPath = emptyList(),
             reason = REASON_NO_PATH_FOUND
         )
+    }
+    
+    /**
+     * 构建指定长度的返回路径
+     * @param initialNode 初始节点
+     * @param steps 需要的返回步数
+     * @return 构建的返回路径
+     */
+    private fun buildReturnPath(initialNode: PlannerNode, steps: Int): List<Int> {
+        val path = mutableListOf<Int>()
+        var currentPageIdx = initialNode.pageIdx
+        
+        for (i in 1..steps) {
+            // 获取当前页面的所有可执行action
+            val actions = uiMap.transition[currentPageIdx] ?: emptyMap()
+            
+            // 查找返回按钮（toPages为空数组）
+            val returnAction = actions.entries.find { (_, toPages) -> toPages.isEmpty() }
+            
+            if (returnAction != null) {
+                path.add(returnAction.key)
+                // 对于返回按钮，我们假设它会返回到上一个页面
+                // 但由于我们不知道具体返回到哪个页面，我们需要特殊处理
+                // 这里我们简单地继续寻找，因为实际执行时返回操作会自动处理页面导航
+            } else {
+                // 如果找不到返回按钮，返回空路径
+                return emptyList()
+            }
+        }
+        
+        return initialNode.path + path
     }
     
     /**

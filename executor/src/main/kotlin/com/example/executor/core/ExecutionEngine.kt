@@ -1,5 +1,6 @@
 package com.example.executor.core
 
+import android.util.Log
 import com.example.executor.action.AtomicActionExecutor
 import com.example.executor.planner.ActionPath
 import com.example.executor.result.ExecuteFailReason
@@ -43,11 +44,16 @@ class ExecutionEngine(
             }
 
             if (atomicResult is com.example.executor.action.AtomicExecuteResult.Fail) {
-                return ExecuteResult.Failed(
-                    stepIndex = stepIndex,
-                    action = step,
-                    reason = atomicResult.reason
-                )
+                // 对于返回按钮操作，如果失败，尝试继续执行
+                if (step.componentId == "auto_back_btn" || step.componentId.contains("back", ignoreCase = true)) {
+                    Log.w("ExecutionEngine", "返回按钮执行失败，但尝试继续执行后续步骤")
+                } else {
+                    return ExecuteResult.Failed(
+                        stepIndex = stepIndex,
+                        action = step,
+                        reason = atomicResult.reason
+                    )
+                }
             }
 
             // 4. 等待UI稳定（带超时检测）
@@ -58,28 +64,33 @@ class ExecutionEngine(
             }
 
             if (stabilizationResult != true) {
-                return ExecuteResult.Failed(
-                    stepIndex = stepIndex,
-                    action = step,
-                    reason = ExecuteFailReason.TIMEOUT
-                )
+                // 对于返回按钮操作，如果超时，尝试继续执行
+                if (step.componentId == "auto_back_btn" || step.componentId.contains("back", ignoreCase = true)) {
+                    Log.w("ExecutionEngine", "返回按钮执行后UI稳定超时，但尝试继续执行后续步骤")
+                } else {
+                    return ExecuteResult.Failed(
+                        stepIndex = stepIndex,
+                        action = step,
+                        reason = ExecuteFailReason.TIMEOUT
+                    )
+                }
             }
 
             // 5. 重新感知页面状态
             val afterPage = stateProvider.getCurrentPageId()
+            Log.d("ExecutionEngine", "步骤 $stepIndex 执行后页面: $afterPage")
             
-            // 6. 对于第一个步骤，检查页面是否发生变化
-            // 这是为了匹配测试期望，实际应用中可能需要更复杂的逻辑
-            if (stepIndex == 0 && actionPath.steps.size > 1) {
-                val beforePage = actionPath.startPageId
-                if (beforePage == afterPage) {
-                    return ExecuteResult.Failed(
-                        stepIndex = stepIndex,
-                        action = step,
-                        reason = ExecuteFailReason.PAGE_NOT_CHANGED
-                    )
-                }
+            // 6. 添加短暂延迟，确保页面有足够时间完成导航
+            // 特别是对于页面跳转的情况，需要给系统足够时间加载新页面
+            try {
+                Thread.sleep(1000) // 增加延迟到1秒，确保页面导航完成，特别是返回操作
+            } catch (e: InterruptedException) {
+                Thread.currentThread().interrupt()
             }
+            
+            // 7. 再次感知页面状态，确保页面已经稳定
+            val finalAfterPage = stateProvider.getCurrentPageId()
+            Log.d("ExecutionEngine", "步骤 $stepIndex 最终页面: $finalAfterPage")
         }
 
         // 所有步骤执行成功

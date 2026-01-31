@@ -40,8 +40,8 @@ class ViewAppointmentActivity : AppCompatActivity() {
         binding.textNoAppointment.visibility = View.GONE
         binding.btnCancelAppointment.visibility = View.VISIBLE
 
-        // 获取第一个预约信息显示
-        val appointmentId = appointmentIds.first()
+        // 获取最新的预约信息显示
+        val appointmentId = appointmentIds.maxByOrNull { it.toLong() } ?: appointmentIds.first()
         val type = sharedPreferences.getString("$appointmentId.type", "")
         val department = sharedPreferences.getString("$appointmentId.department", "")
         val doctor = sharedPreferences.getString("$appointmentId.doctor", "")
